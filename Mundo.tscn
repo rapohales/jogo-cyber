@@ -1,11 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://6i8a8il2mpwd"]
+[gd_scene load_steps=5 format=4 uid="uid://6i8a8il2mpwd"]
 
 [ext_resource type="PackedScene" uid="uid://di2jt4oe5vqdr" path="res://Player/player.tscn" id="1_pe05s"]
+[ext_resource type="Texture2D" uid="uid://din6d2rlj4ib7" path="res://Sprite-0001.png" id="1_ubi47"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xywc0"]
+resource_name = "chao_teste"
+texture = ExtResource("1_ubi47")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_gejyx"]
+sources/1 = SubResource("TileSetAtlasSource_xywc0")
 
 [node name="Mundo" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD8////AQAAAAAAAAD+////AQAAAAAAAAAAAP//AQAAAAAAAAACAP//AQAAAAAAAAAEAP//AQAAAAAAAAAGAP//AQAAAAAAAAD8/wEAAQAAAAAAAAD+/wEAAQAAAAAAAAAAAAEAAQAAAAAAAAACAAEAAQAAAAAAAAAEAAEAAQAAAAAAAAAGAAEAAQAAAAAAAAD6////AQAAAAAAAAD6//3/AQAAAAAAAAD8//3/AQAAAAAAAAD+//3/AQAAAAAAAAAAAP3/AQAAAAAAAAACAP3/AQAAAAAAAAAEAP3/AQAAAAAAAAAGAP3/AQAAAAAAAAD6/wEAAQAAAAAAAAD6/wMAAQAAAAAAAAD8/wMAAQAAAAAAAAD+/wMAAQAAAAAAAAAAAAMAAQAAAAAAAAACAAMAAQAAAAAAAAAEAAMAAQAAAAAAAAAGAAMAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_gejyx")
 
 [node name="Player" parent="." instance=ExtResource("1_pe05s")]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
+position_smoothing_enabled = true
 rotation_smoothing_enabled = true

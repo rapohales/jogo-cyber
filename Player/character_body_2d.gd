@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var ACCELERATION = 800
-@export var FRICTION = 500
+@export var ACCELERATION = 5000
+@export var FRICTION = 5000
 @export var MAX_SPEED = 120
 
 enum {IDLE, RUN}
