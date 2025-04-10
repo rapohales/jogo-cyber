@@ -1,44 +1,39 @@
 extends CharacterBody2D
 
-@export var ACCELERATION = 5000
-@export var FRICTION = 5000
-@export var MAX_SPEED = 120
+const speed = 200
 
-enum {IDLE, RUN}
-var state = IDLE
-@onready var animationTree = $AnimationTree
-@onready var state_machine = animationTree["parameters/playback"]
+# Referência ao AnimationPlayer
+@onready var animation_player = $AnimationPlayer
+@onready var anim_tree = $AnimationTree
+@onready var sprite = $AnimatedSprite2D
 
-var blend_position : Vector2 = Vector2.ZERO
-var blend_pos_path =["parameters/idle/idle_bs2d/blend_position", "parameters/run/run_bs2d/blend_position"]
+@onready var state_machine = anim_tree.get("parameters/playback")
 
-var animTree_state_keys = ["idle", "run"]
+var input_direction = null
 
-func _physics_process(delta: float) -> void:
-	move(delta)
-	animar()
-	pass
+@export var start_direction : Vector2 = Vector2(0, 1)
+func _ready() -> void:
+	update_animation(start_direction)
+
+func pegar_input():
+	input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	velocity = input_direction.normalized() * speed
 	
-func move(delta):
-	var input_vector = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	if input_vector == Vector2.ZERO:
-		state = IDLE
-		apply_friction(FRICTION * delta)
-	else:
-		state = RUN
-		apply_movement(input_vector * ACCELERATION * delta)
-		blend_position = input_vector
-		move_and_slide()
-func apply_friction(amount) -> void:
-	if velocity.length() > amount:
-		velocity -= velocity.normalized() * amount
-	else:
-		velocity = Vector2.ZERO
+	
+func _physics_process(delta: float) -> void:
+	pegar_input()
+	move_and_slide() 
+	update_animation(input_direction)
+	estado_animacao()
 
-func apply_movement(a) -> void:
-	velocity += a
-	velocity = velocity.limit_length(MAX_SPEED)
+func update_animation(move_input: Vector2):
+	
+	if(move_input != Vector2.ZERO):
+		anim_tree.set("parameters/idle/blend_position", move_input)
+		anim_tree.set("parameters/walk/blend_position", move_input)
 
-func animar() -> void:
-	state_machine.travel(animTree_state_keys[state])
-	animationTree.set(blend_pos_path[state], blend_position)
+func estado_animacao():
+	if(velocity != Vector2.ZERO):
+		state_machine.travel("walk")
+	else:
+		state_machine.travel("idle")
