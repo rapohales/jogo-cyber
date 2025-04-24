@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://din6d2rlj4ib7"
-path="res://.godot/imported/Sprite-0001.png-7647bf9f8b536d839277d4b64aee9852.ctex"
+uid="uid://bhr48int7f8pk"
+path="res://.godot/imported/Bushes.png-f01a04664d906b3466c3fa21f2b3e529.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprite-0001.png"
-dest_files=["res://.godot/imported/Sprite-0001.png-7647bf9f8b536d839277d4b64aee9852.ctex"]
+source_file="res://PixelNature_Sprites/Bushes.png"
+dest_files=["res://.godot/imported/Bushes.png-f01a04664d906b3466c3fa21f2b3e529.ctex"]
 
 [params]
 

@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 const speed = 200
 
+@export var health = 100
 # Referência ao AnimationPlayer
 @onready var animation_player = $AnimationPlayer
 @onready var anim_tree = $AnimationTree
@@ -10,7 +11,7 @@ const speed = 200
 @onready var state_machine = anim_tree.get("parameters/playback")
 
 var input_direction = null
-
+var dekt = null
 @export var start_direction : Vector2 = Vector2(0, 1)
 func _ready() -> void:
 	update_animation(start_direction)
@@ -20,7 +21,8 @@ func pegar_input():
 	velocity = input_direction.normalized() * speed
 	
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
+	
 	pegar_input()
 	move_and_slide() 
 	update_animation(input_direction)
