@@ -4,6 +4,7 @@
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gejyx"]
 texture = ExtResource("1_llp1t")
+use_texture_padding = false
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
