@@ -1,7 +1,8 @@
-[gd_scene load_steps=109 format=3 uid="uid://di2jt4oe5vqdr"]
+[gd_scene load_steps=110 format=3 uid="uid://di2jt4oe5vqdr"]
 
-[ext_resource type="Script" uid="uid://imqsowvl3c2a" path="res://Player/character_body_2d.gd" id="1_4ntmi"]
+[ext_resource type="Script" uid="uid://imqsowvl3c2a" path="res://Scripts/character_body_2d.gd" id="1_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://p00jt2gns5s4" path="res://Player/tileset.png" id="2_4ntmi"]
+[ext_resource type="PackedScene" uid="uid://b3x6j2lcn1nna" path="res://Cenas/interacting_component.tscn" id="3_btcbx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ntmi"]
 radius = 6.97955
@@ -952,3 +953,6 @@ tree_root = SubResource("AnimationNodeStateMachine_8mwp6")
 anim_player = NodePath("../AnimationPlayer")
 parameters/idle/blend_position = Vector2(0, 0)
 parameters/walk/blend_position = Vector2(0, 0)
+
+[node name="InteractingComponent" parent="." instance=ExtResource("3_btcbx")]
+position = Vector2(-1, -6)

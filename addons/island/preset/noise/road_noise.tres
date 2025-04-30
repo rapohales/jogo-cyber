@@ -1,0 +1,8 @@
+[gd_resource type="FastNoiseLite" format=3 uid="uid://bgcbykwevvwrr"]
+
+[resource]
+seed = -1902741913
+frequency = 0.0243
+fractal_type = 2
+fractal_octaves = 1
+cellular_distance_function = 1

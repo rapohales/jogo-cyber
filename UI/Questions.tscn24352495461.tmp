@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://1srfhedrakwv"]
+
+[ext_resource type="Script" uid="uid://bjfh0yu6c7yv4" path="res://UI/questions.gd" id="1_s6nhl"]
+
+[node name="Questions" type="CanvasLayer"]
+script = ExtResource("1_s6nhl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 6.0
+offset_top = 524.0
+offset_right = 1493.0
+offset_bottom = 705.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "ergunta"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(25, 50)
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "botao1"
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "botao2"
