@@ -2,7 +2,8 @@ extends CanvasLayer
 
 @onready var op1: Button = $VBoxContainer/HBoxContainer/Button
 @onready var op2: Button = $VBoxContainer/HBoxContainer/Button2
-
+signal onbotao1down(moedas, segurança)
+signal onbotao2down(moedas, segurança)
 func _ready():
 	EventBus.event_triggered.connect(_on_event)
 	
@@ -13,7 +14,10 @@ func _on_event(event_name: String, _data: Variant):
 		
 	
 func _on_button_button_down() -> void:
+	onbotao1down.emit(50, 2)
 	visible = false
-	
 func _on_button_2_button_down() -> void:
+	onbotao2down.emit(50, 2)
 	visible = false
+
+	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://6i8a8il2mpwd"]
+[gd_scene load_steps=12 format=4 uid="uid://6i8a8il2mpwd"]
 
 [ext_resource type="Script" uid="uid://ddp4l8pqchl4u" path="res://Scripts/main.gd" id="1_8trbm"]
 [ext_resource type="TileSet" uid="uid://3scimsm6nob5" path="res://PixelNature_Sprites/Mundo.tres" id="2_25bfp"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://bec3ujqf3gbw0" path="res://UI/ui.gd" id="6_a0d8t"]
 [ext_resource type="PackedScene" uid="uid://b0x5ijl5ckopo" path="res://PixelNature_Sprites/chest.tscn" id="7_p3fmm"]
 [ext_resource type="PackedScene" uid="uid://1srfhedrakwv" path="res://UI/Questions.tscn" id="8_25bfp"]
+[ext_resource type="Script" uid="uid://dbfgvt6w3f30r" path="res://Cenas/currency.gd" id="9_feos1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xywc0"]
 texture = ExtResource("3_feos1")
@@ -64,8 +65,6 @@ zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
-[node name="Coin_timer" type="Timer" parent="."]
-
 [node name="Ui" parent="." instance=ExtResource("5_oyce6")]
 script = ExtResource("6_a0d8t")
 
@@ -78,4 +77,10 @@ offset = Vector2(0, 0.255)
 scale = Vector2(1.05, 1)
 transform = Transform2D(1.05, 0, 0, 1, 0, 0.255)
 
-[connection signal="timeout" from="Coin_timer" to="." method="_on_coin_timer_timeout"]
+[node name="Currency" type="Node" parent="."]
+script = ExtResource("9_feos1")
+
+[node name="Coin_timer" type="Timer" parent="."]
+
+[connection signal="onbotao1down" from="Questions" to="Currency" method="_on_questions_onbotao_1_down"]
+[connection signal="timeout" from="Coin_timer" to="Currency" method="_on_coin_timer_timeout"]
