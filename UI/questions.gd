@@ -14,10 +14,8 @@ func _on_event(event_name: String, _data: Variant):
 		
 	
 func _on_button_button_down() -> void:
-	onbotao1down.emit(50, 2)
-	visible = false
+	onbotao1down.emit(50, 0)
 func _on_button_2_button_down() -> void:
-	onbotao2down.emit(50, 2)
-	visible = false
+	onbotao2down.emit(-50, 2)
 
 	

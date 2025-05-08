@@ -10,7 +10,14 @@ func _on_coin_timer_timeout() -> void:
 
 
 func update_score_ui(score, _seguranca):
-	EventBus.atualizar_score(score, seguranca )
+	EventBus.atualizar_score(score, _seguranca)
 
 func _on_questions_onbotao_1_down(_moedas: Variant, _seguranca: Variant) -> void:
-	update_score_ui(moedas, seguranca)
+	moedas += _moedas
+	seguranca += _seguranca
+	update_score_ui(_moedas, _seguranca)
+func _on_questions_onbotao_2_down(_moedas: Variant, _seguranca: Variant) -> void:
+	moedas += _moedas
+	seguranca += _seguranca
+	print("aa")
+	update_score_ui(_moedas, _seguranca)
