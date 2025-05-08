@@ -87,4 +87,5 @@ script = ExtResource("9_feos1")
 position = Vector2(645, 321)
 
 [connection signal="onbotao1down" from="Questions" to="Currency" method="_on_questions_onbotao_1_down"]
+[connection signal="onbotao2down" from="Questions" to="Currency" method="_on_questions_onbotao_2_down"]
 [connection signal="timeout" from="Coin_timer" to="Currency" method="_on_coin_timer_timeout"]
