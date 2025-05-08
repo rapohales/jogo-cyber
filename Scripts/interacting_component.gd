@@ -23,6 +23,7 @@ func _process(_delta: float) -> void:
 			interact_label.visible = true
 		else:
 			interact_label.visible = false
+		return
 			
 func _sort_by_nearest(area1, area2):
 	var area1_dist = global_position.distance_to(area1.global_position)
