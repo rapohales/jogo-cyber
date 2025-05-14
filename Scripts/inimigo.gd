@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @export var speed: float = 80
 @export var player: Node2D  # Arraste o jogador para cá
+@export var max_health: int = 100
+@export var health: int = 100
 
 @onready var sprite = $AnimatedSprite2D
 var current_frame := 0
