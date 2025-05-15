@@ -38,4 +38,5 @@ func _on_interacting_range_area_entered(area: Area2D) -> void:
 
 func _on_interacting_range_area_exited(area: Area2D) -> void:
 	current_interations.erase(area)
+	interact_label.visible = false
 	pass 

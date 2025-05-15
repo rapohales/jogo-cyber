@@ -3,7 +3,6 @@ extends CharacterBody2D
 const speed = 200
 
 @export var health = 100
-# Referência ao AnimationPlayer
 @onready var animation_player = $AnimationPlayer
 @onready var anim_tree = $AnimationTree
 @onready var sprite = $AnimatedSprite2D

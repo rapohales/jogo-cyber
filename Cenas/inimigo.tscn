@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://caijy5e6dgx7i"]
+[gd_scene load_steps=19 format=3 uid="uid://caijy5e6dgx7i"]
 
 [ext_resource type="Texture2D" uid="uid://bxiyga83qaf3a" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Pink/Pink1.png" id="1_1u51a"]
 [ext_resource type="Script" uid="uid://dptbc72xckfbc" path="res://Scripts/inimigo.gd" id="1_imhjy"]
@@ -74,9 +74,6 @@ animations = [{
 "speed": 15.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_imhjy"]
-radius = 17.0
-
 [node name="Inimigo" type="CharacterBody2D"]
 script = ExtResource("1_imhjy")
 
@@ -84,8 +81,5 @@ script = ExtResource("1_imhjy")
 sprite_frames = SubResource("SpriteFrames_v8vm1")
 animation = &"Idle"
 frame_progress = 0.515668
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_imhjy")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

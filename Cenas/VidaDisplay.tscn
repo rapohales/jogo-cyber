@@ -1,12 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://hs0ihatcxnr0"]
 
-[ext_resource type="Script" uid="uid://c3og5843jimr5" path="res://Cenas/vida_display.gd" id="1_iw7h7"]
+[ext_resource type="Script" uid="uid://dhyiokihnopeb" path="res://Cenas/player_health.gd" id="1_iw7h7"]
 [ext_resource type="Texture2D" uid="uid://bl0t35058dsas" path="res://Assets/Vida_bar/healthbarback.png" id="2_iw7h7"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nngm7"]
 load_path = "res://.godot/imported/healthbar1.png-724ecaafbb794472c018fab89dfc83e8.ctex"
 
-[node name="VidaDisplay" type="Node2D"]
+[node name="PlayerHealth" type="Node2D"]
 script = ExtResource("1_iw7h7")
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]

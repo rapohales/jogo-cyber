@@ -24,6 +24,8 @@ func _physics_process(delta):
 		# Animação (muda os frames manualmente)
 		animate_run(delta, direction)
 
+
+
 func animate_run(delta: float, direction: Vector2):
 	timer += delta
 	if velocity.length() > 0:  # Se está se movendo
@@ -37,3 +39,20 @@ func animate_run(delta: float, direction: Vector2):
 			sprite.frame = current_frame
 	else:
 		sprite.frame = 0  # Frame parado (idle)
+
+
+
+func tomarDano(dano):
+	health -= dano
+	if health <= 0:
+		morrer()
+
+func morrer():
+	queue_free()
+	
+func _on_questions_temp_dano_inimigo(dano: Variant) -> void:
+	
+	print("dando o seguinte dano: %d", dano)
+	health -= dano
+	tomarDano(dano)
+	$VidaDisplay.update_healthbar(health)

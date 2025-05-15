@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=4 uid="uid://6i8a8il2mpwd"]
+[gd_scene load_steps=16 format=4 uid="uid://6i8a8il2mpwd"]
 
 [ext_resource type="Script" uid="uid://ddp4l8pqchl4u" path="res://Scripts/main.gd" id="1_8trbm"]
 [ext_resource type="TileSet" uid="uid://3scimsm6nob5" path="res://PixelNature_Sprites/Mundo.tres" id="2_25bfp"]
 [ext_resource type="Texture2D" uid="uid://bjobjy0hl3qhr" path="res://PixelNature_Sprites/Trees-and-Bushes.png" id="3_feos1"]
 [ext_resource type="PackedScene" uid="uid://di2jt4oe5vqdr" path="res://Player/player.tscn" id="4_wvmf8"]
+[ext_resource type="PackedScene" uid="uid://b5kl8al0l182x" path="res://Cenas/PlayerDisplay.tscn" id="5_a0d8t"]
 [ext_resource type="PackedScene" uid="uid://rlohni74tnn5" path="res://UI/UI.tscn" id="5_oyce6"]
 [ext_resource type="Script" uid="uid://bec3ujqf3gbw0" path="res://UI/ui.gd" id="6_a0d8t"]
 [ext_resource type="PackedScene" uid="uid://b0x5ijl5ckopo" path="res://PixelNature_Sprites/chest.tscn" id="7_p3fmm"]
@@ -11,6 +12,7 @@
 [ext_resource type="Script" uid="uid://dbfgvt6w3f30r" path="res://Cenas/currency.gd" id="9_feos1"]
 [ext_resource type="PackedScene" uid="uid://caijy5e6dgx7i" path="res://Cenas/inimigo.tscn" id="10_wvmf8"]
 [ext_resource type="PackedScene" uid="uid://hs0ihatcxnr0" path="res://Cenas/VidaDisplay.tscn" id="11_oyce6"]
+[ext_resource type="Script" uid="uid://bc84u7m0bgbp8" path="res://Cenas/inimigo_spawn.gd" id="13_p3fmm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xywc0"]
 texture = ExtResource("3_feos1")
@@ -67,6 +69,8 @@ zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
+[node name="VidaDisplay" parent="Player" instance=ExtResource("5_a0d8t")]
+
 [node name="Ui" parent="." instance=ExtResource("5_oyce6")]
 script = ExtResource("6_a0d8t")
 
@@ -90,7 +94,15 @@ motion_mode = 1
 speed = 50.0
 
 [node name="VidaDisplay" parent="Inimigo" instance=ExtResource("11_oyce6")]
+position = Vector2(0, -6)
+scale = Vector2(0.5, 0.5)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-74, -77)
+script = ExtResource("13_p3fmm")
+enemy_scene = ExtResource("10_wvmf8")
 
 [connection signal="onbotao1down" from="Questions" to="Currency" method="_on_questions_onbotao_1_down"]
 [connection signal="onbotao2down" from="Questions" to="Currency" method="_on_questions_onbotao_2_down"]
+[connection signal="temp_dano_inimigo" from="Questions" to="Inimigo" method="_on_questions_temp_dano_inimigo"]
 [connection signal="timeout" from="Coin_timer" to="Currency" method="_on_coin_timer_timeout"]
