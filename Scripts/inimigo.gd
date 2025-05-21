@@ -5,6 +5,8 @@ extends CharacterBody2D
 @export var max_health: int = 100
 @export var health: int = 100
 
+signal morreu;
+var valor = 10
 @onready var sprite = $AnimatedSprite2D
 var current_frame := 0
 var animation_speed = 0.2  # Velocidade da animação
@@ -46,8 +48,8 @@ func tomarDano(dano):
 	health -= dano
 	if health <= 0:
 		morrer()
-
 func morrer():
+	emit_signal('morreu', valor)
 	queue_free()
 	
 func _on_questions_temp_dano_inimigo(dano: Variant) -> void:

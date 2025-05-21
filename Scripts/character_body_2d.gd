@@ -19,14 +19,13 @@ func pegar_input():
 	input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = input_direction.normalized() * speed
 	
-	
 func _physics_process(_delta: float) -> void:
-	
+
 	pegar_input()
 	move_and_slide() 
 	update_animation(input_direction)
 	estado_animacao()
-
+	
 func update_animation(move_input: Vector2):
 	
 	if(move_input != Vector2.ZERO):
