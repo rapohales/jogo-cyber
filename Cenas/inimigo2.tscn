@@ -1,0 +1,112 @@
+[gd_scene load_steps=11 format=3 uid="uid://c7ips1q7qwiwr"]
+
+[ext_resource type="Texture2D" uid="uid://colb3qy003n8o" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Blue/Blue1.png" id="1_rmhqq"]
+[ext_resource type="Texture2D" uid="uid://d25jmvrmfy6j6" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Blue/Blue2.png" id="2_ed2xb"]
+[ext_resource type="Texture2D" uid="uid://6jc5n8bppuk0" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Blue/Blue3.png" id="3_c7l25"]
+[ext_resource type="Texture2D" uid="uid://lrobk66f2xs8" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Blue/Blue4.png" id="4_yry6o"]
+[ext_resource type="Texture2D" uid="uid://c8k14v6jfmke5" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Blue/Blue5.png" id="5_se827"]
+[ext_resource type="Texture2D" uid="uid://c5tl3wxsjwcl5" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Blue/Blue6.png" id="6_swbw1"]
+[ext_resource type="Texture2D" uid="uid://c5fxk8gdiimf" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Blue/Blue7.png" id="7_rapw7"]
+[ext_resource type="Texture2D" uid="uid://b7lm6k3di6jgo" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Blue/Blue8.png" id="8_sg0j6"]
+
+[sub_resource type="GDScript" id="GDScript_rmhqq"]
+script/source = "extends CharacterBody2D
+
+@export var speed: float = 80
+@export var player: Node2D  # Arraste o jogador para cá
+@export var max_health: int = 100
+@export var health: int = 100
+
+@onready var sprite = $AnimatedSprite2D
+var current_frame := 0
+var animation_speed = 0.2  # Velocidade da animação
+var timer = 0.0
+
+func _ready():
+	if player == null:
+		player = get_tree().get_first_node_in_group(\"player\")
+
+func _physics_process(delta):
+	if player:
+		# Movimento
+		var direction = (player.global_position - global_position).normalized()
+		velocity = direction * speed
+		move_and_slide()
+		
+		# Animação (muda os frames manualmente)
+		animate_run(delta, direction)
+
+
+
+func animate_run(delta: float, direction: Vector2):
+	timer += delta
+	if velocity.length() > 0:  # Se está se movendo
+		# Vira o sprite conforme a direção
+		sprite.flip_h = direction.x < 0
+		
+		# Troca os frames em um intervalo de tempo
+		if timer >= animation_speed:
+			timer = 0.0
+			current_frame = (current_frame + 1) % 4
+			sprite.frame = current_frame
+	else:
+		sprite.frame = 0  # Frame parado (idle)
+
+
+
+func tomarDano(dano):
+	health -= dano
+	if health <= 0:
+		morrer()
+
+func morrer():
+	queue_free()
+	
+func _on_questions_temp_dano_inimigo(dano: Variant) -> void:
+	
+	print(\"dando o seguinte dano: %d\", dano)
+	health -= dano
+	tomarDano(dano)
+	$VidaDisplay.update_healthbar(health)
+"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tcveq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rmhqq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ed2xb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_c7l25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yry6o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_se827")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_swbw1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rapw7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_sg0j6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = SubResource("GDScript_rmhqq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tcveq")
+frame_progress = 0.316864
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

@@ -1,0 +1,53 @@
+[gd_scene load_steps=11 format=3 uid="uid://c22mpvuqlw5n0"]
+
+[ext_resource type="Script" uid="uid://cclfv4w5dsvn0" path="res://Cenas/inimigo_3.gd" id="1_bj5kt"]
+[ext_resource type="Texture2D" uid="uid://doeo620pipc0t" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Green/Green1.png" id="1_modu2"]
+[ext_resource type="Texture2D" uid="uid://76n6d2qdeyw2" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Green/Green2.png" id="2_bj5kt"]
+[ext_resource type="Texture2D" uid="uid://djo6nx5mx1sh2" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Green/Green3.png" id="3_2hbjj"]
+[ext_resource type="Texture2D" uid="uid://bfre8qd16eosv" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Green/Green4.png" id="4_8cow1"]
+[ext_resource type="Texture2D" uid="uid://caexes7uv6jyw" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Green/Green5.png" id="5_g8j8q"]
+[ext_resource type="Texture2D" uid="uid://cu2hcy1a2b4g2" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Green/Green6.png" id="6_swcj2"]
+[ext_resource type="Texture2D" uid="uid://c5k7fard3yg75" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Green/Green7.png" id="7_5ugxj"]
+[ext_resource type="Texture2D" uid="uid://bpiwlw4lfw5lk" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Green/Green8.png" id="8_xbl4l"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m0jiw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_modu2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_bj5kt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2hbjj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8cow1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g8j8q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_swcj2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5ugxj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xbl4l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_bj5kt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_m0jiw")
+frame = 5
+frame_progress = 0.789517
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
