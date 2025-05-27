@@ -19,31 +19,35 @@ var dekt = null
 func _ready() -> void:
 	update_animation(start_direction)
 
+# FUNÇÃO QUE ATIVA QUANDO INIMIGO ENCOSTA NELE.
+		
 func tomar_dano(dano):
 	if not can_take_damage:
 		return
 	vida_ui.value -= dano
 	health -= dano
 	flash()
-	if health <=0:
+	if health <=0: ## SE VIDA MENOR QUE 0, ATVA A FUNÇÃO DE BAIXO.
 		morrer()
-	
 
+# SE A VIDA FICAR MENOR QUE 0, ATIVA A FUNÇÃO MORRER
 func morrer():
 	print("Morreu")
-	queue_free()
+	queue_free() ## DELETA ELE
 	pass
 func pegar_input():
 	input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = input_direction.normalized() * speed
 	
+	
+# FUNÇOES DE MOVIMENTO, IGNORAR.
 func _physics_process(_delta: float) -> void:
 	pegar_input()
 	move_and_slide() 
 	update_animation(input_direction)
 	estado_animacao()
 
-
+## AO TOMAR DANO, ATIVA O NEGOCIO VERMELHO NO SPRITE
 func flash():
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color(2, 0.5, 0.5), 0.1)
