@@ -13,4 +13,5 @@ func atualizar_score(score :int, seguranca) -> void:
 	atualizar_score_out.emit(score, seguranca)
 
 
+
 	
