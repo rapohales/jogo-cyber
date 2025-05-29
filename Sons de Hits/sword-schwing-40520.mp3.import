@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dr3y1st8u0x2r"
+path="res://.godot/imported/sword-schwing-40520.mp3-7e4bc741d0dcc0ce096c4f14c9a2494a.mp3str"
+
+[deps]
+
+source_file="res://Sons de Hits/sword-schwing-40520.mp3"
+dest_files=["res://.godot/imported/sword-schwing-40520.mp3-7e4bc741d0dcc0ce096c4f14c9a2494a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://clbjk15bq6t3c"
+path="res://.godot/imported/draw-a-sword-327726.mp3-bde94d84d52b597c8a85f89b8723ee38.mp3str"
+
+[deps]
+
+source_file="res://Sons de Hits/draw-a-sword-327726.mp3"
+dest_files=["res://.godot/imported/draw-a-sword-327726.mp3-bde94d84d52b597c8a85f89b8723ee38.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
