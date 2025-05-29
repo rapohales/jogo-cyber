@@ -21,8 +21,6 @@ func _ready():
 	print("Sinais conectados: ", $Hurtbox.get_signal_connection_list("body_entered"))
 	if player == null:
 		player = get_tree().get_first_node_in_group("player")
-	$Hurtbox.body_entered.connect(_on_body_entered)
-	$Hurtbox.body_exited.connect(_on_body_exited)
 
 func _physics_process(delta):
 	if player:

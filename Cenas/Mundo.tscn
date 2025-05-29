@@ -13,8 +13,8 @@
 [ext_resource type="Script" uid="uid://dbfgvt6w3f30r" path="res://Cenas/currency.gd" id="9_feos1"]
 [ext_resource type="PackedScene" uid="uid://caijy5e6dgx7i" path="res://Cenas/inimigo.tscn" id="10_wvmf8"]
 [ext_resource type="PackedScene" uid="uid://hs0ihatcxnr0" path="res://Cenas/VidaDisplay.tscn" id="11_oyce6"]
-[ext_resource type="PackedScene" uid="uid://c7ips1q7qwiwr" path="res://Cenas/inimigo2.tscn" id="14_4wu8b"]
-[ext_resource type="PackedScene" uid="uid://c22mpvuqlw5n0" path="res://Cenas/inimigo3.tscn" id="15_xisxj"]
+[ext_resource type="PackedScene" uid="uid://d0iab24d8ecxl" path="res://Cenas/inimigo2.tscn" id="14_4wu8b"]
+[ext_resource type="PackedScene" uid="uid://4tys4alin4l" path="res://Cenas/inimigo3.tscn" id="15_xisxj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xywc0"]
 texture = ExtResource("3_feos1")
@@ -102,14 +102,14 @@ position = Vector2(645, 321)
 position = Vector2(0, -6)
 scale = Vector2(0.5, 0.5)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("14_4wu8b")]
+[node name="CharacterBody2D" parent="." groups=["enemies"] instance=ExtResource("14_4wu8b")]
 position = Vector2(449, 374)
 
 [node name="VidaDisplay" parent="CharacterBody2D" instance=ExtResource("11_oyce6")]
 position = Vector2(0, -10)
 scale = Vector2(0.5, 0.5)
 
-[node name="CharacterBody2D2" parent="." instance=ExtResource("15_xisxj")]
+[node name="CharacterBody2D2" parent="." groups=["enemies"] instance=ExtResource("15_xisxj")]
 position = Vector2(550, 365)
 
 [node name="VidaDisplay" parent="CharacterBody2D2" instance=ExtResource("11_oyce6")]
