@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://di2jt4oe5vqdr" path="res://Player/player.tscn" id="4_wvmf8"]
 [ext_resource type="PackedScene" uid="uid://b5kl8al0l182x" path="res://Cenas/PlayerDisplay.tscn" id="5_a0d8t"]
 [ext_resource type="PackedScene" uid="uid://rlohni74tnn5" path="res://UI/UI.tscn" id="5_oyce6"]
-[ext_resource type="Script" uid="uid://bvlpn754lgol2" path="res://Cenas/xp.gd" id="6_p3fmm"]
+[ext_resource type="Script" uid="uid://bec3ujqf3gbw0" path="res://UI/ui.gd" id="6_a0d8t"]
 [ext_resource type="PackedScene" uid="uid://b0x5ijl5ckopo" path="res://PixelNature_Sprites/chest.tscn" id="7_p3fmm"]
 [ext_resource type="PackedScene" uid="uid://1srfhedrakwv" path="res://UI/Questions.tscn" id="8_25bfp"]
 [ext_resource type="Script" uid="uid://dbfgvt6w3f30r" path="res://Cenas/currency.gd" id="9_feos1"]
@@ -76,14 +76,12 @@ rotation_smoothing_enabled = true
 
 [node name="VidaDisplay" parent="Player" instance=ExtResource("5_a0d8t")]
 
-[node name="Xp2" type="Node" parent="Player"]
-script = ExtResource("6_p3fmm")
-
 [node name="Ui" parent="." instance=ExtResource("5_oyce6")]
+script = ExtResource("6_a0d8t")
 
 [node name="Chest" parent="." instance=ExtResource("7_p3fmm")]
 y_sort_enabled = true
-position = Vector2(274, 272)
+position = Vector2(279, 284)
 
 [node name="Questions" parent="." instance=ExtResource("8_25bfp")]
 offset = Vector2(0, 0.255)
@@ -97,6 +95,8 @@ script = ExtResource("9_feos1")
 
 [node name="Inimigo" parent="." instance=ExtResource("10_wvmf8")]
 position = Vector2(645, 321)
+motion_mode = 1
+speed = 50.0
 
 [node name="VidaDisplay" parent="Inimigo" instance=ExtResource("11_oyce6")]
 position = Vector2(0, -6)
@@ -120,4 +120,3 @@ scale = Vector2(0.5, 0.5)
 [connection signal="onbotao2down" from="Questions" to="Currency" method="_on_questions_onbotao_2_down"]
 [connection signal="temp_dano_inimigo" from="Questions" to="Inimigo" method="_on_questions_temp_dano_inimigo"]
 [connection signal="timeout" from="Coin_timer" to="Currency" method="_on_coin_timer_timeout"]
-[connection signal="morreu" from="Inimigo" to="Player/Xp2" method="_on_inimigo_morreu"]
