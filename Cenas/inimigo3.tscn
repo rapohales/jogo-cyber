@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://4tys4alin4l"]
+[gd_scene load_steps=14 format=3 uid="uid://4tys4alin4l"]
 
 [ext_resource type="Script" uid="uid://cclfv4w5dsvn0" path="res://Scripts/inimigo_3.gd" id="1_bj5kt"]
 [ext_resource type="Texture2D" uid="uid://doeo620pipc0t" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Green/Green1.png" id="1_modu2"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cu2hcy1a2b4g2" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Green/Green6.png" id="6_swcj2"]
 [ext_resource type="Texture2D" uid="uid://c5k7fard3yg75" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Green/Green7.png" id="7_5ugxj"]
 [ext_resource type="Texture2D" uid="uid://bpiwlw4lfw5lk" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Green/Green8.png" id="8_xbl4l"]
+[ext_resource type="PackedScene" uid="uid://hs0ihatcxnr0" path="res://Cenas/VidaDisplay.tscn" id="10_2hbjj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m0jiw"]
 animations = [{
@@ -74,6 +75,10 @@ wait_time = 0.1
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.005
+
+[node name="VidaDisplay" parent="." instance=ExtResource("10_2hbjj")]
+position = Vector2(0, -10)
+scale = Vector2(0.5, 0.5)
 
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_body_entered"]
 [connection signal="body_exited" from="Hurtbox" to="." method="_on_body_exited"]

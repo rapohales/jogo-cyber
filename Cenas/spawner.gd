@@ -2,7 +2,7 @@ extends Marker2D
 
 # Configurações do spawner
 @export var enemy_scenes: Array[PackedScene] = []
-@export var max_enemies := 2
+@export var max_enemies := 999
 @export var spawn_delay := 5.0
 @export var spawn_radius: float = 50.0
 

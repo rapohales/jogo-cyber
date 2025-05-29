@@ -927,18 +927,18 @@ transitions = ["idle", "walk", SubResource("AnimationNodeStateMachineTransition_
 
 [node name="Player" type="CharacterBody2D" groups=["jogador"]]
 y_sort_enabled = true
-position = Vector2(412, 293)
+position = Vector2(410, 296)
 wall_min_slide_angle = 0.0
 safe_margin = 0.001
 script = ExtResource("1_4ntmi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["jogador"]]
-position = Vector2(0, -15)
+position = Vector2(1, 8)
 rotation = 1.58085
 shape = SubResource("CapsuleShape2D_4ntmi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -32)
+position = Vector2(1, -14)
 sprite_frames = SubResource("SpriteFrames_fhogf")
 animation = &"idle"
 frame = 14
@@ -957,10 +957,10 @@ parameters/idle/blend_position = Vector2(0, 0)
 parameters/walk/blend_position = Vector2(0, 0)
 
 [node name="InteractingComponent" parent="." instance=ExtResource("3_btcbx")]
-position = Vector2(-1, -6)
+position = Vector2(1, 0)
 
 [node name="Hitbox" type="Area2D" parent="."]
-position = Vector2(1, -19)
+position = Vector2(1, 1)
 
 [node name="VulTimer" type="Timer" parent="."]
 

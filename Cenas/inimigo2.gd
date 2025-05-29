@@ -1,8 +1,10 @@
 extends CharacterBody2D
 
 @onready var area2d = $Hurtbox
-@export var speed: float = 80
-@export var player: Node2D  # Arraste o jogador para cá
+var min_speed = 70
+var max_speed = 100
+@export var speed: int = randi() % ((max_speed) - (min_speed)) + (min_speed)
+@export var player: Node2D  
 @export var max_health: int = 100
 @export var health: int = 100
 @export var dano: int = 10
@@ -17,12 +19,12 @@ var valor = 10
 var current_frame := 0
 var animation_speed = 0.2  # Velocidade da animação
 var timer = 0.0
+
 func _ready():
 	print("Sinais conectados: ", $Hurtbox.get_signal_connection_list("body_entered"))
 	if player == null:
 		player = get_tree().get_first_node_in_group("player")
-	$Hurtbox.body_entered.connect(_on_body_entered)
-	$Hurtbox.body_exited.connect(_on_body_exited)
+	print(speed)
 
 func _physics_process(delta):
 	if player:
@@ -30,8 +32,6 @@ func _physics_process(delta):
 		velocity = direction * speed
 		move_and_slide()
 		animate_run(delta, direction)
-
-
 
 func animate_run(delta: float, direction: Vector2):
 	timer += delta
@@ -44,8 +44,6 @@ func animate_run(delta: float, direction: Vector2):
 			sprite.frame = current_frame
 	else:
 		sprite.frame = 0 
-
-
 
 func tomarDano(_dano):
 	health -= _dano

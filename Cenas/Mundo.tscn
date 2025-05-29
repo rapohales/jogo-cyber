@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://6i8a8il2mpwd"]
+[gd_scene load_steps=17 format=4 uid="uid://6i8a8il2mpwd"]
 
 [ext_resource type="Script" uid="uid://ddp4l8pqchl4u" path="res://Scripts/main.gd" id="1_8trbm"]
 [ext_resource type="TileSet" uid="uid://3scimsm6nob5" path="res://PixelNature_Sprites/Mundo.tres" id="2_25bfp"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://1srfhedrakwv" path="res://UI/Questions.tscn" id="8_25bfp"]
 [ext_resource type="Script" uid="uid://dbfgvt6w3f30r" path="res://Cenas/currency.gd" id="9_feos1"]
 [ext_resource type="PackedScene" uid="uid://caijy5e6dgx7i" path="res://Cenas/inimigo.tscn" id="10_wvmf8"]
-[ext_resource type="PackedScene" uid="uid://hs0ihatcxnr0" path="res://Cenas/VidaDisplay.tscn" id="11_oyce6"]
 [ext_resource type="PackedScene" uid="uid://d0iab24d8ecxl" path="res://Cenas/inimigo2.tscn" id="14_4wu8b"]
 [ext_resource type="PackedScene" uid="uid://4tys4alin4l" path="res://Cenas/inimigo3.tscn" id="15_xisxj"]
 
@@ -98,23 +97,11 @@ script = ExtResource("9_feos1")
 [node name="Inimigo" parent="." instance=ExtResource("10_wvmf8")]
 position = Vector2(645, 321)
 
-[node name="VidaDisplay" parent="Inimigo" instance=ExtResource("11_oyce6")]
-position = Vector2(0, -6)
-scale = Vector2(0.5, 0.5)
-
-[node name="CharacterBody2D" parent="." groups=["enemies"] instance=ExtResource("14_4wu8b")]
+[node name="CharacterBody2D" parent="." instance=ExtResource("14_4wu8b")]
 position = Vector2(449, 374)
 
-[node name="VidaDisplay" parent="CharacterBody2D" instance=ExtResource("11_oyce6")]
-position = Vector2(0, -10)
-scale = Vector2(0.5, 0.5)
-
-[node name="CharacterBody2D2" parent="." groups=["enemies"] instance=ExtResource("15_xisxj")]
+[node name="CharacterBody2D2" parent="." instance=ExtResource("15_xisxj")]
 position = Vector2(550, 365)
-
-[node name="VidaDisplay" parent="CharacterBody2D2" instance=ExtResource("11_oyce6")]
-position = Vector2(0, -6)
-scale = Vector2(0.5, 0.5)
 
 [connection signal="onbotao1down" from="Questions" to="Currency" method="_on_questions_onbotao_1_down"]
 [connection signal="onbotao2down" from="Questions" to="Currency" method="_on_questions_onbotao_2_down"]
