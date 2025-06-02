@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://h4ycdlf3l2gl"]
+
+[ext_resource type="Script" uid="uid://cgo3fspw7n5ft" path="res://Cenas/espada.gd" id="1_52xw4"]
+[ext_resource type="Texture2D" uid="uid://cld37yblkikic" path="res://Assets/Armas/slash.png" id="1_buw5n"]
+
+[node name="Espada" type="Node2D"]
+script = ExtResource("1_52xw4")
+
+[node name="Slash" type="Area2D" parent="."]
+monitoring = false
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Slash"]
+position = Vector2(1, -0.4)
+scale = Vector2(0.96875, 1.03571)
+polygon = PackedVector2Array(-4, -7, 4, -6, 19.6129, 0.386207, 19, 6, 2, -1, -2, -1, -17, 7, -20, 0)
+
+[node name="SlashSprite" type="Sprite2D" parent="Slash"]
+position = Vector2(0, -1)
+texture = ExtResource("1_buw5n")
+
+[node name="CoolDown" type="Timer" parent="Slash"]
+autostart = true
+
+[node name="Arma_sprite" type="Sprite2D" parent="."]
+
+[connection signal="timeout" from="Slash/CoolDown" to="." method="_on_cool_down_timeout"]

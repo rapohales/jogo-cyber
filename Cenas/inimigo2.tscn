@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://d0iab24d8ecxl"]
 
-[ext_resource type="Script" uid="uid://vqyibanmtnni" path="res://Cenas/inimigo2.gd" id="1_c7l25"]
+[ext_resource type="Script" uid="uid://vqyibanmtnni" path="res://Scripts/inimigo2.gd" id="1_c7l25"]
 [ext_resource type="Texture2D" uid="uid://colb3qy003n8o" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Blue/Blue1.png" id="1_rmhqq"]
 [ext_resource type="Texture2D" uid="uid://d25jmvrmfy6j6" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Blue/Blue2.png" id="2_ed2xb"]
 [ext_resource type="Texture2D" uid="uid://6jc5n8bppuk0" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Blue/Blue3.png" id="3_c7l25"]

@@ -21,7 +21,6 @@ var animation_speed = 0.2  # Velocidade da animação
 var timer = 0.0
 
 func _ready():
-	print("Sinais conectados: ", $Hurtbox.get_signal_connection_list("body_entered"))
 	if player == null:
 		player = get_tree().get_first_node_in_group("player")
 	print(speed)
@@ -54,13 +53,11 @@ func morrer():
 	queue_free()
 	
 func _on_questions_temp_dano_inimigo(_dano: Variant) -> void:
-	print("dando o seguinte dano: %d", dano)
 	health -= _dano
 	tomarDano(_dano)
 	$VidaDisplay.update_healthbar(health)
 
 func _on_body_entered(body):
-	print("Colisão com:", body.name, " | Grupos:", body.get_groups())
 	if body.is_in_group("jogador"):
 		jogador = body
 		causar_dano()

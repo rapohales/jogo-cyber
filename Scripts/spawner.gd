@@ -3,7 +3,9 @@ extends Marker2D
 # Configurações do spawner
 @export var enemy_scenes: Array[PackedScene] = []
 @export var max_enemies := 999
-@export var spawn_delay := 5.0
+@export var min_delay = 1
+@export var max_delay = 1.3
+var spawn_delay: float = randf_range(max_delay, min_delay) + min_delay
 @export var spawn_radius: float = 50.0
 
 # Texturas para a barra de vida (adicionado conforme seu código)
@@ -49,15 +51,16 @@ func spawn_random_enemy():
 	var selected_scene = enemy_scenes[randi() % enemy_scenes.size()]
 	var new_enemy = selected_scene.instantiate()
 	
+	var main_node = get_tree().root.get_node("Mundo")  # Ajuste o caminho conforme sua estrutura
+	main_node.add_child(new_enemy)
 	# Posiciona o inimigo
 	var spawn_pos = global_position
 	if spawn_radius > 0:
 		var angle = randf() * TAU
 		spawn_pos += Vector2(cos(angle), sin(angle)) * randf() * spawn_radius
 	
-	add_child(new_enemy)
+
 	new_enemy.global_position = spawn_pos
-	
 	# Configura a barra de vida do inimigo
 	setup_enemy_healthbar(new_enemy)
 	
@@ -83,7 +86,7 @@ func setup_enemy_healthbar(enemy):
 
 func add_healthbar_script(healthbar):
 	# Adiciona funcionalidade dinâmica à barra de vida
-	healthbar.set_script(preload("res://Cenas/vida_display.gd"))
+	healthbar.set_script(preload("res://Scripts/vida_display.gd"))
 	healthbar.bar_red = bar_red
 	healthbar.bar_blue = bar_blue
 	healthbar.bar_yellow = bar_yellow

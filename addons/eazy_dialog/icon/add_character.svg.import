@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cld37yblkikic"
-path="res://.godot/imported/slash.png-4c51899765ab670b3a26bb2a76ee36de.ctex"
+uid="uid://dhhxl2vaeyaq0"
+path="res://.godot/imported/add_character.svg-f8695137102e305cdc6b73ef7bad4792.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/2D Chests & Coins/slash.png"
-dest_files=["res://.godot/imported/slash.png-4c51899765ab670b3a26bb2a76ee36de.ctex"]
+source_file="res://addons/eazy_dialog/icon/add_character.svg"
+dest_files=["res://.godot/imported/add_character.svg-f8695137102e305cdc6b73ef7bad4792.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

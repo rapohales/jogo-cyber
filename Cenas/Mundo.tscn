@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://6i8a8il2mpwd"]
+[gd_scene load_steps=15 format=4 uid="uid://6i8a8il2mpwd"]
 
 [ext_resource type="Script" uid="uid://ddp4l8pqchl4u" path="res://Scripts/main.gd" id="1_8trbm"]
 [ext_resource type="TileSet" uid="uid://3scimsm6nob5" path="res://PixelNature_Sprites/Mundo.tres" id="2_25bfp"]
@@ -7,13 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://di2jt4oe5vqdr" path="res://Player/player.tscn" id="4_wvmf8"]
 [ext_resource type="PackedScene" uid="uid://b5kl8al0l182x" path="res://Cenas/PlayerDisplay.tscn" id="5_a0d8t"]
 [ext_resource type="PackedScene" uid="uid://rlohni74tnn5" path="res://UI/UI.tscn" id="5_oyce6"]
-[ext_resource type="Script" uid="uid://bvlpn754lgol2" path="res://Cenas/xp.gd" id="6_p3fmm"]
+[ext_resource type="Script" uid="uid://bvlpn754lgol2" path="res://Scripts/xp.gd" id="6_p3fmm"]
 [ext_resource type="PackedScene" uid="uid://b0x5ijl5ckopo" path="res://PixelNature_Sprites/chest.tscn" id="7_p3fmm"]
 [ext_resource type="PackedScene" uid="uid://1srfhedrakwv" path="res://UI/Questions.tscn" id="8_25bfp"]
-[ext_resource type="Script" uid="uid://dbfgvt6w3f30r" path="res://Cenas/currency.gd" id="9_feos1"]
-[ext_resource type="PackedScene" uid="uid://caijy5e6dgx7i" path="res://Cenas/inimigo.tscn" id="10_wvmf8"]
-[ext_resource type="PackedScene" uid="uid://d0iab24d8ecxl" path="res://Cenas/inimigo2.tscn" id="14_4wu8b"]
-[ext_resource type="PackedScene" uid="uid://4tys4alin4l" path="res://Cenas/inimigo3.tscn" id="15_xisxj"]
+[ext_resource type="PackedScene" uid="uid://h4ycdlf3l2gl" path="res://Cenas/Espada.tscn" id="8_a0d8t"]
+[ext_resource type="Script" uid="uid://dbfgvt6w3f30r" path="res://Scripts/currency.gd" id="9_feos1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xywc0"]
 texture = ExtResource("3_feos1")
@@ -61,9 +59,6 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAUAAkAAAAAAAAAAAAXAAkAAAAAAAAAAAAhAAoAAAAAAAAAAAAlAAoAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_gejyx")
 
-[node name="Marker2D" parent="Node2D" instance=ExtResource("4_p3fmm")]
-position = Vector2(726, 175)
-
 [node name="Player" parent="." groups=["player"] instance=ExtResource("4_wvmf8")]
 position = Vector2(400, 267)
 
@@ -73,10 +68,92 @@ zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
+[node name="Marker2D" parent="Player/Camera2D" instance=ExtResource("4_p3fmm")]
+position = Vector2(409, -193)
+enemy_scenes = null
+max_enemies = null
+min_delay = null
+max_delay = null
+spawn_radius = null
+
+[node name="Marker2D2" parent="Player/Camera2D" instance=ExtResource("4_p3fmm")]
+position = Vector2(164, -189)
+enemy_scenes = null
+max_enemies = null
+min_delay = null
+max_delay = null
+spawn_radius = null
+
+[node name="Marker2D3" parent="Player/Camera2D" instance=ExtResource("4_p3fmm")]
+position = Vector2(-154, -205)
+enemy_scenes = null
+max_enemies = null
+min_delay = null
+max_delay = null
+spawn_radius = null
+
+[node name="Marker2D4" parent="Player/Camera2D" instance=ExtResource("4_p3fmm")]
+position = Vector2(-462, -71)
+enemy_scenes = null
+max_enemies = null
+min_delay = null
+max_delay = null
+spawn_radius = null
+
+[node name="Marker2D5" parent="Player/Camera2D" instance=ExtResource("4_p3fmm")]
+position = Vector2(-394, 206)
+enemy_scenes = null
+max_enemies = null
+min_delay = null
+max_delay = null
+spawn_radius = null
+
+[node name="Marker2D6" parent="Player/Camera2D" instance=ExtResource("4_p3fmm")]
+position = Vector2(-504, 39)
+enemy_scenes = null
+max_enemies = null
+min_delay = null
+max_delay = null
+spawn_radius = null
+
+[node name="Marker2D7" parent="Player/Camera2D" instance=ExtResource("4_p3fmm")]
+position = Vector2(-159, 215)
+enemy_scenes = null
+max_enemies = null
+min_delay = null
+max_delay = null
+spawn_radius = null
+
+[node name="Marker2D8" parent="Player/Camera2D" instance=ExtResource("4_p3fmm")]
+position = Vector2(118, 223)
+enemy_scenes = null
+max_enemies = null
+min_delay = null
+max_delay = null
+spawn_radius = null
+
+[node name="Marker2D9" parent="Player/Camera2D" instance=ExtResource("4_p3fmm")]
+position = Vector2(333, 194)
+enemy_scenes = null
+max_enemies = null
+min_delay = null
+max_delay = null
+spawn_radius = null
+
+[node name="Marker2D10" parent="Player/Camera2D" instance=ExtResource("4_p3fmm")]
+position = Vector2(420, 67)
+enemy_scenes = null
+max_enemies = null
+min_delay = null
+max_delay = null
+spawn_radius = null
+
 [node name="VidaDisplay" parent="Player" instance=ExtResource("5_a0d8t")]
 
 [node name="Xp2" type="Node" parent="Player"]
 script = ExtResource("6_p3fmm")
+
+[node name="Espada" parent="Player" instance=ExtResource("8_a0d8t")]
 
 [node name="Ui" parent="." instance=ExtResource("5_oyce6")]
 
@@ -94,17 +171,6 @@ script = ExtResource("9_feos1")
 
 [node name="Coin_timer" type="Timer" parent="."]
 
-[node name="Inimigo" parent="." instance=ExtResource("10_wvmf8")]
-position = Vector2(645, 321)
-
-[node name="CharacterBody2D" parent="." instance=ExtResource("14_4wu8b")]
-position = Vector2(449, 374)
-
-[node name="CharacterBody2D2" parent="." instance=ExtResource("15_xisxj")]
-position = Vector2(550, 365)
-
 [connection signal="onbotao1down" from="Questions" to="Currency" method="_on_questions_onbotao_1_down"]
 [connection signal="onbotao2down" from="Questions" to="Currency" method="_on_questions_onbotao_2_down"]
-[connection signal="temp_dano_inimigo" from="Questions" to="Inimigo" method="_on_questions_temp_dano_inimigo"]
 [connection signal="timeout" from="Coin_timer" to="Currency" method="_on_coin_timer_timeout"]
-[connection signal="morreu" from="Inimigo" to="Player/Xp2" method="_on_inimigo_morreu"]

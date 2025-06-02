@@ -114,6 +114,7 @@ wait_time = 0.005
 position = Vector2(0, -10)
 scale = Vector2(0.5, 0.5)
 
-[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Hurtbox" to="." method="_on_body_exited"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
