@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b5kl8al0l182x"]
 
-[ext_resource type="Script" uid="uid://c3og5843jimr5" path="res://Cenas/vida_display.gd" id="1_jfdw8"]
+[ext_resource type="Script" uid="uid://c3og5843jimr5" path="res://Scripts/vida_display.gd" id="1_jfdw8"]
 [ext_resource type="Texture2D" uid="uid://bl0t35058dsas" path="res://Assets/Vida_bar/healthbarback.png" id="2_8vjkl"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nngm7"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://caijy5e6dgx7i"]
+[gd_scene load_steps=22 format=3 uid="uid://caijy5e6dgx7i"]
 
 [ext_resource type="Texture2D" uid="uid://bxiyga83qaf3a" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Pink/Pink1.png" id="1_1u51a"]
 [ext_resource type="Script" uid="uid://dptbc72xckfbc" path="res://Scripts/inimigo.gd" id="1_imhjy"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bjkdnlv17vs8c" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Pink/Pink6.png" id="6_dje4e"]
 [ext_resource type="Texture2D" uid="uid://dsu4tjd7p30gt" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Pink/Pink7.png" id="7_mouyk"]
 [ext_resource type="Texture2D" uid="uid://cy12vjau7773d" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Pink/Pink8.png" id="8_fr7b7"]
+[ext_resource type="PackedScene" uid="uid://hs0ihatcxnr0" path="res://Cenas/VidaDisplay.tscn" id="10_5ctfb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aavgy"]
 atlas = ExtResource("1_1u51a")
@@ -74,7 +75,15 @@ animations = [{
 "speed": 15.0
 }]
 
-[node name="Inimigo" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imhjy"]
+size = Vector2(29, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ctfb"]
+size = Vector2(29, 29)
+
+[node name="Inimigo" type="CharacterBody2D" groups=["enemies"]]
+collision_priority = 2.0
+wall_min_slide_angle = 0.0
 script = ExtResource("1_imhjy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -82,4 +91,30 @@ sprite_frames = SubResource("SpriteFrames_v8vm1")
 animation = &"Idle"
 frame_progress = 0.515668
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_imhjy")
+one_way_collision_margin = 0.0
+debug_color = Color(0.603922, 0.47451, 0.701961, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_5ctfb")
+disabled = true
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.005
+
+[node name="VidaDisplay" parent="." instance=ExtResource("10_5ctfb")]
+position = Vector2(0, -10)
+scale = Vector2(0.5, 0.5)
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Hurtbox" to="." method="_on_body_exited"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
