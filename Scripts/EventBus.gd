@@ -22,6 +22,6 @@ func atualizar_score(score :int, seguranca) -> void:
 	print("pinto")
 	atualizar_score_out.emit(score, seguranca)
 	
-	
+signal atualizar_esquivas(current_charges, max_charges)
 
 	

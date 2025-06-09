@@ -2,58 +2,107 @@ extends CharacterBody2D
 
 const speed = 200
 
+# Variáveis originais (mantidas intactas)
 @export var health = 100
 @onready var animation_player = $AnimationPlayer
 @onready var anim_tree = $AnimationTree
 @onready var sprite = $AnimatedSprite2D
 var can_take_damage := true
 var invulnerability_time := 1
-@onready  var vida_ui = $VidaDisplay/HealthBar
+@onready var vida_ui = $VidaDisplay/HealthBar
 
+# Sistema de esquivas
+var dodge_speed = 400
+var dodge_duration = 0.15
+var dodge_cooldown = 10.0
+var max_dodge_charges = 3
+var dodge_charges = 3
+var is_dodging = false
+var dodge_recharge_timer = Timer.new()
 
 @onready var state_machine = anim_tree.get("parameters/playback")
 
 var input_direction = null
 var dekt = null
 @export var start_direction : Vector2 = Vector2(0, 1)
-func _ready() -> void:
-	update_animation(start_direction)
 
-# FUNÇÃO QUE ATIVA QUANDO INIMIGO ENCOSTA NELE.
-		
+func _ready() -> void:
+	# Configuração do timer de recarga
+	add_child(dodge_recharge_timer)
+	dodge_recharge_timer.wait_time = dodge_cooldown
+	dodge_recharge_timer.timeout.connect(_replenish_dodge)
+	
+	update_animation(start_direction)
+	_update_dodge_ui()  # Atualiza UI inicial
+
+func _update_dodge_ui():
+	# Emite o sinal para atualizar a UI
+	if Engine.has_singleton("EventBus"):
+		EventBus.emit_signal("atualizar_esquivas", dodge_charges, max_dodge_charges)
+
+func _replenish_dodge():
+	if dodge_charges < max_dodge_charges:
+		dodge_charges += 1
+		_update_dodge_ui()
+		if dodge_charges < max_dodge_charges:
+			dodge_recharge_timer.start()
+
 func tomar_dano(dano):
-	if not can_take_damage:
+	if not can_take_damage or is_dodging:
 		return
 	vida_ui.value -= dano
 	health -= dano
 	flash()
-	if health <=0: ## SE VIDA MENOR QUE 0, ATVA A FUNÇÃO DE BAIXO.
+	if health <=0:
 		morrer()
 
-# SE A VIDA FICAR MENOR QUE 0, ATIVA A FUNÇÃO MORRER
 func morrer():
 	print("Morreu")
-	queue_free() ## DELETA ELE
-	pass
+	queue_free()
+
 func pegar_input():
+	if is_dodging:
+		return
+		
 	input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = input_direction.normalized() * speed
 	
+	if Input.is_action_just_pressed("dodge") and dodge_charges > 0 and not is_dodging:
+		start_dodge()
+
+func start_dodge():
+	dodge_charges -= 1
+	_update_dodge_ui()
 	
-# FUNÇOES DE MOVIMENTO, IGNORAR.
+	is_dodging = true
+	can_take_damage = false
+	
+	if dodge_charges < max_dodge_charges and not dodge_recharge_timer.is_stopped():
+		dodge_recharge_timer.start()
+	
+	if input_direction != Vector2.ZERO:
+		velocity = input_direction.normalized() * dodge_speed
+	else:
+		velocity = Vector2.DOWN * dodge_speed
+	
+	sprite.scale = Vector2(0.8, 0.8)
+	
+	await get_tree().create_timer(dodge_duration).timeout
+	is_dodging = false
+	can_take_damage = true
+	sprite.scale = Vector2(1, 1)
+	velocity = input_direction.normalized() * speed
+
 func _physics_process(_delta: float) -> void:
 	pegar_input()
 	move_and_slide() 
 	update_animation(input_direction)
 	estado_animacao()
 
-## AO TOMAR DANO, ATIVA O NEGOCIO VERMELHO NO SPRITE
 func flash():
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color(2, 0.5, 0.5), 0.1)
-	# Volta para a cor normal
 	tween.tween_property(self, "modulate", Color(1, 1, 1), 0.3)
-
 
 func update_animation(move_input: Vector2):
 	if(move_input != Vector2.ZERO):
@@ -61,11 +110,12 @@ func update_animation(move_input: Vector2):
 		anim_tree.set("parameters/walk/blend_position", move_input)
 
 func estado_animacao():
-	if(velocity != Vector2.ZERO):
+	if is_dodging:
+		state_machine.travel("walk")
+	elif(velocity != Vector2.ZERO):
 		state_machine.travel("walk")
 	else:
 		state_machine.travel("idle")
-
 
 func _on_vul_timer_timeout() -> void:
 	can_take_damage = true
