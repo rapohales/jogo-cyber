@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://h4ycdlf3l2gl"]
+
+[ext_resource type="Script" uid="uid://cgo3fspw7n5ft" path="res://Cenas/espada.gd" id="1_52xw4"]
+[ext_resource type="PackedScene" uid="uid://b6j3q01a3cb6b" path="res://Cenas/SlashProjectile.tscn" id="2_52xw4"]
+
+[node name="Espada" type="Node2D"]
+script = ExtResource("1_52xw4")
+proj_cena = ExtResource("2_52xw4")
+
+[node name="Arma_sprite" type="Sprite2D" parent="."]
+
+[node name="CoolDown" type="Timer" parent="."]
+wait_time = 0.7
+autostart = true
+
+[node name="TimeAlive" type="Timer" parent="."]
+
+[connection signal="timeout" from="CoolDown" to="." method="_on_cool_down_timeout"]
+[connection signal="timeout" from="TimeAlive" to="." method="_on_time_alive_timeout"]

@@ -1,27 +1,37 @@
-[gd_scene load_steps=5 format=3 uid="uid://rlohni74tnn5"]
+[gd_scene load_steps=7 format=3 uid="uid://rlohni74tnn5"]
 
-[ext_resource type="Texture2D" uid="uid://bl0t35058dsas" path="res://Assets/Vida_bar/healthbarback.png" id="1_dhe1o"]
 [ext_resource type="Script" uid="uid://bec3ujqf3gbw0" path="res://UI/ui.gd" id="1_q0uhn"]
-[ext_resource type="Texture2D" uid="uid://86x4c6nbluft" path="res://Assets/Vida_bar/healthbar1.png" id="2_q0uhn"]
+[ext_resource type="FontFile" uid="uid://bku1m2d5f0ncj" path="res://Assets/Font/Pixellari.ttf" id="2_e707p"]
+[ext_resource type="Texture2D" uid="uid://jl4kslybwtpx" path="res://Assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Button01a_1.png" id="2_f1fl4"]
+[ext_resource type="Texture2D" uid="uid://btc2d7pvaiu0u" path="res://Assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Bar13a.png" id="4_jqf55"]
+[ext_resource type="Texture2D" uid="uid://baxkrxoh35cxi" path="res://Assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Bar07a.png" id="5_f1fl4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pa3ot"]
+font = ExtResource("2_e707p")
 font_size = 36
-font_color = Color(1, 1, 0.262745, 1)
+font_color = Color(0.998777, 0.87865, 0.730635, 1)
+outline_size = 9
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Ui" type="CanvasLayer"]
 script = ExtResource("1_q0uhn")
+
+[node name="UiFlatButton01a1" type="Sprite2D" parent="."]
+position = Vector2(167, 253.125)
+scale = Vector2(7.51562, 5.44531)
+texture = ExtResource("2_f1fl4")
 
 [node name="ScoreLabel" type="Label" parent="."]
 visibility_layer = 2
 anchors_preset = -1
 anchor_left = -0.002
 anchor_top = 0.243
-anchor_right = -0.002
+anchor_right = 0.0113333
 anchor_bottom = 0.281143
-offset_left = 82.0
-offset_top = 33.9
-offset_right = 136.0
-offset_bottom = 34.2
+offset_left = 79.0
+offset_top = 25.9
+offset_right = 185.0
+offset_bottom = 35.1999
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
@@ -34,24 +44,45 @@ visibility_layer = 2
 anchors_preset = -1
 anchor_left = -0.002
 anchor_top = 0.243
-anchor_right = -0.002
+anchor_right = 0.0173333
 anchor_bottom = 0.281143
-offset_left = 54.0
-offset_top = 78.9
-offset_right = 275.0
-offset_bottom = 102.2
+offset_left = 82.0
+offset_top = 74.9
+offset_right = 303.0
+offset_bottom = 98.2
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
-text = "Segurança: 0"
+text = "Segurança:"
 label_settings = SubResource("LabelSettings_pa3ot")
 metadata/_edit_use_anchors_ = true
 
+[node name="ScoreLabel3" type="Label" parent="."]
+visibility_layer = 2
+anchors_preset = -1
+anchor_left = -0.002
+anchor_top = 0.243
+anchor_right = -0.000666667
+anchor_bottom = 0.281143
+offset_left = 82.0
+offset_top = 124.9
+offset_right = 303.0
+offset_bottom = 148.2
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+text = "Nível:"
+label_settings = SubResource("LabelSettings_pa3ot")
+metadata/_edit_use_anchors_ = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(221, 394)
+
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-offset_left = 791.0
-offset_top = 6.0
-offset_right = 871.0
-offset_bottom = 42.0
-scale = Vector2(8.38496, 4.10428)
-texture_under = ExtResource("1_dhe1o")
-texture_progress = ExtResource("2_q0uhn")
+offset_left = 70.0
+offset_top = 372.0
+offset_right = 102.0
+offset_bottom = 384.0
+scale = Vector2(5.8, 4.68)
+texture_over = ExtResource("4_jqf55")
+texture_progress = ExtResource("5_f1fl4")

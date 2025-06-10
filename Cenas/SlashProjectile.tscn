@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://b6j3q01a3cb6b"]
+
+[ext_resource type="Texture2D" uid="uid://b7xmgga3piybu" path="res://Assets/Armas/slashsheet.png" id="1_4p26a"]
+[ext_resource type="Script" uid="uid://bju3rd6d1pw3" path="res://Cenas/slash_projectile.gd" id="1_u6lkq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6lkq"]
+atlas = ExtResource("1_4p26a")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyijk"]
+atlas = ExtResource("1_4p26a")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3q00l"]
+atlas = ExtResource("1_4p26a")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0jwlu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6lkq")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_yyijk")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_3q00l")
+}],
+"loop": false,
+"name": &"slash",
+"speed": 24.0
+}]
+
+[node name="SlashProjectile" type="Area2D"]
+collision_layer = 4
+collision_mask = 4
+input_pickable = false
+script = ExtResource("1_u6lkq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(1, -0.4)
+rotation = -1.67552
+scale = Vector2(0.96875, 1.03571)
+polygon = PackedVector2Array(-4.46775, -28.5936, 12.3895, -30.8197, 25.686, -1.35819, 24.2864, 29.5711, 6.18058, -3.27575, -2, -1, -27.3674, 27.4056, -23.2117, -0.340244)
+
+[node name="SlashSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3, 0)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_0jwlu")
+animation = &"slash"
+frame = 2
+frame_progress = 1.0
+
+[node name="CoolDown" type="Timer" parent="."]
+autostart = true
+
+[node name="VisibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

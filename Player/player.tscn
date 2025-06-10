@@ -957,11 +957,13 @@ parameters/idle/blend_position = Vector2(0, 0)
 parameters/walk/blend_position = Vector2(0, 0)
 
 [node name="InteractingComponent" parent="." instance=ExtResource("3_btcbx")]
-position = Vector2(1, 0)
+position = Vector2(0, 3)
 
 [node name="Hitbox" type="Area2D" parent="."]
 position = Vector2(1, 1)
 
 [node name="VulTimer" type="Timer" parent="."]
+
+[node name="Muzzl" type="Marker2D" parent="."]
 
 [connection signal="timeout" from="VulTimer" to="." method="_on_vul_timer_timeout"]

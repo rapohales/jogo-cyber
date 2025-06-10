@@ -7,7 +7,6 @@ signal onbotao2down(moedas, segurança)
 signal temp_dano_inimigo(dano)
 func _ready():
 	EventBus.event_triggered.connect(_on_event)
-	
 func _on_event(event_name: String, _data: Variant):
 	if event_name == "emitir_ui": 
 		get_canvas()

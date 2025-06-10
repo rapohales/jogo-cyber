@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://bvlpn754lgol2" path="res://Scripts/xp.gd" id="6_p3fmm"]
 [ext_resource type="PackedScene" uid="uid://b0x5ijl5ckopo" path="res://PixelNature_Sprites/chest.tscn" id="7_p3fmm"]
 [ext_resource type="PackedScene" uid="uid://1srfhedrakwv" path="res://UI/Questions.tscn" id="8_25bfp"]
-[ext_resource type="PackedScene" uid="uid://h4ycdlf3l2gl" path="res://Cenas/Espada.tscn" id="8_a0d8t"]
+[ext_resource type="PackedScene" uid="uid://h4ycdlf3l2gl" path="res://Scripts/Espada.tscn" id="8_a0d8t"]
 [ext_resource type="Script" uid="uid://dbfgvt6w3f30r" path="res://Scripts/currency.gd" id="9_feos1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xywc0"]
@@ -61,6 +61,7 @@ tile_set = SubResource("TileSet_gejyx")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("4_wvmf8")]
 position = Vector2(400, 267)
+cena_espada = ExtResource("8_a0d8t")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -11)
@@ -70,83 +71,33 @@ rotation_smoothing_enabled = true
 
 [node name="Marker2D" parent="Player/Camera2D" instance=ExtResource("4_p3fmm")]
 position = Vector2(409, -193)
-enemy_scenes = null
-max_enemies = null
-min_delay = null
-max_delay = null
-spawn_radius = null
 
 [node name="Marker2D2" parent="Player/Camera2D" instance=ExtResource("4_p3fmm")]
 position = Vector2(164, -189)
-enemy_scenes = null
-max_enemies = null
-min_delay = null
-max_delay = null
-spawn_radius = null
 
 [node name="Marker2D3" parent="Player/Camera2D" instance=ExtResource("4_p3fmm")]
 position = Vector2(-154, -205)
-enemy_scenes = null
-max_enemies = null
-min_delay = null
-max_delay = null
-spawn_radius = null
 
 [node name="Marker2D4" parent="Player/Camera2D" instance=ExtResource("4_p3fmm")]
 position = Vector2(-462, -71)
-enemy_scenes = null
-max_enemies = null
-min_delay = null
-max_delay = null
-spawn_radius = null
 
 [node name="Marker2D5" parent="Player/Camera2D" instance=ExtResource("4_p3fmm")]
 position = Vector2(-394, 206)
-enemy_scenes = null
-max_enemies = null
-min_delay = null
-max_delay = null
-spawn_radius = null
 
 [node name="Marker2D6" parent="Player/Camera2D" instance=ExtResource("4_p3fmm")]
 position = Vector2(-504, 39)
-enemy_scenes = null
-max_enemies = null
-min_delay = null
-max_delay = null
-spawn_radius = null
 
 [node name="Marker2D7" parent="Player/Camera2D" instance=ExtResource("4_p3fmm")]
 position = Vector2(-159, 215)
-enemy_scenes = null
-max_enemies = null
-min_delay = null
-max_delay = null
-spawn_radius = null
 
 [node name="Marker2D8" parent="Player/Camera2D" instance=ExtResource("4_p3fmm")]
 position = Vector2(118, 223)
-enemy_scenes = null
-max_enemies = null
-min_delay = null
-max_delay = null
-spawn_radius = null
 
 [node name="Marker2D9" parent="Player/Camera2D" instance=ExtResource("4_p3fmm")]
 position = Vector2(333, 194)
-enemy_scenes = null
-max_enemies = null
-min_delay = null
-max_delay = null
-spawn_radius = null
 
 [node name="Marker2D10" parent="Player/Camera2D" instance=ExtResource("4_p3fmm")]
 position = Vector2(420, 67)
-enemy_scenes = null
-max_enemies = null
-min_delay = null
-max_delay = null
-spawn_radius = null
 
 [node name="VidaDisplay" parent="Player" instance=ExtResource("5_a0d8t")]
 

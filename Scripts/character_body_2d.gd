@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
-const speed = 200
-
+@export var speed = 200.0
 @export var health = 100
 @onready var animation_player = $AnimationPlayer
 @onready var anim_tree = $AnimationTree
@@ -10,6 +9,8 @@ var can_take_damage := true
 var invulnerability_time := 1
 @onready  var vida_ui = $VidaDisplay/HealthBar
 
+
+@export var cena_espada : PackedScene
 
 @onready var state_machine = anim_tree.get("parameters/playback")
 
@@ -51,7 +52,6 @@ func _physics_process(_delta: float) -> void:
 func flash():
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color(2, 0.5, 0.5), 0.1)
-	# Volta para a cor normal
 	tween.tween_property(self, "modulate", Color(1, 1, 1), 0.3)
 
 
@@ -69,3 +69,4 @@ func estado_animacao():
 
 func _on_vul_timer_timeout() -> void:
 	can_take_damage = true
+	

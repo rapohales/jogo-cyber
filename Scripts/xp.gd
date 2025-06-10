@@ -2,51 +2,64 @@ extends Node
 
 var current_xp := 0
 var current_level := 1
-var xp_to_next_level := 100  # XP necessário para o nível 2
-	
-	
+var xp_to_next_level := 100# XP necessário para o nível 2
+var next_threshold;
 # Dicionário com os thresholds de XP para cada nível
 # Ou uma fórmula para calcular dinamicamente
 var xp_thresholds = {
 	1: 0,     # Nível 1 (base)
 	2: 100,   # Nível 2
 	3: 250,   # Nível 3
-	4: 450,   # E assim por diante...
-	# Ou use uma fórmula progressiva
+	4: 450,
+	5: 700,
+	6: 1000,
+	7: 1400,
+	8: 2000,
+	9: 2500,
+	10: 3500,
+	11: 4600,
+	12: 5300,
+	13: 450,
+	14: 450,
+	15: 450,
+	16: 450,
+	17: 450,
+	18: 450,
+	19: 450,
+	20: 450,
+	21: 450,
+	22: 450,
+	23: 450,
+	24: 450,
+	25: 450,
+	
+	   
 }
-
-# Alternativa: calcular thresholds com fórmula
-func calculate_xp_for_level(level):
-	return pow(level, 2) * 100  # Exemplo: fórmula quadrática
 	
 func add_xp(amount: int):
 	current_xp += amount
 	check_level_up()
-	EventBus._atualizar_ui_progressbar(current_xp, current_level)
+	EventBus._atualizar_ui_progressbar(current_xp, current_level, xp_to_next_level)
 func check_level_up():
-	# Verifica se o jogador subiu de nível
 	while current_xp >= get_xp_required_for_level(current_level + 1):
 		level_up()
 
 func get_xp_required_for_level(level):
-	# Se estiver usando o dicionário
 	if xp_thresholds.has(level):
 		return xp_thresholds[level]
-	# Se estiver usando fórmula
-	return calculate_xp_for_level(level - 1)
 
 func level_up():
 	current_level += 1
+	current_xp = 0
+	
 	var previous_threshold = get_xp_required_for_level(current_level - 1)
-	var next_threshold = get_xp_required_for_level(current_level)
-	xp_to_next_level = next_threshold - previous_threshold
-	
-	# Emitir sinal ou chamar função quando subir de nível
-	
-	emit_signal("level_up", current_level, current_xp)
-	
-	# Atualizar UI ou outros sistemas
-	# GameEvents.player_leveled_up.emit(current_level)
+	next_threshold = get_xp_required_for_level(current_level)
+	xp_to_next_level = next_threshold
+	var farofa = xp_thresholds.get(current_level + 1, 0)
+	EventBus._atualizar_ui_reset_progressbar(current_xp, farofa)
+	if current_level == 3 or current_level == 7 or current_level == 10 or current_level == 15:
+		EventBus.emitir_ui("emitir_ui", "´pmtps")
+		pass
 
 
 func _on_inimigo_morreu(valor) -> void:
