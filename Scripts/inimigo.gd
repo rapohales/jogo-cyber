@@ -11,6 +11,7 @@ var max_speed = 90
 @export var dano_dado: float = 1
 @export var xp_amount = 20
 var pode_causar_dano = true
+var fireworks_scene = preload("res://Cenas/enemy_explosion.tscn")
 var intervalo_de_dano = 0.5
 @onready var cd = $Cooldown
 var jogador = null
@@ -57,6 +58,8 @@ func morrer():
 	var xp = player.get_node("Xp2")
 	xp.add_xp(20)
 	queue_free()
+	
+
 	
 func _on_questions_temp_dano_inimigo(_dano: Variant) -> void:
 	health -= _dano

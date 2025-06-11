@@ -28,6 +28,6 @@ func emitir_ui(event_name: String, data = null) -> void:
 func atualizar_score(score :int, seguranca) -> void:
 	atualizar_score_out.emit(score, seguranca)
 	
-	
+signal atualizar_esquivas(current_charges, max_charges)
 
 	

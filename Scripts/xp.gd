@@ -4,6 +4,7 @@ var current_xp := 0
 var current_level := 1
 var xp_to_next_level := 100# XP necessário para o nível 2
 var next_threshold;
+signal nivel_att(cur_xp)
 # Dicionário com os thresholds de XP para cada nível
 # Ou uma fórmula para calcular dinamicamente
 var xp_thresholds = {
@@ -47,11 +48,11 @@ func check_level_up():
 func get_xp_required_for_level(level):
 	if xp_thresholds.has(level):
 		return xp_thresholds[level]
-
+		
 func level_up():
+	nivel_att.emit(current_level)
 	current_level += 1
 	current_xp = 0
-	
 	var previous_threshold = get_xp_required_for_level(current_level - 1)
 	next_threshold = get_xp_required_for_level(current_level)
 	xp_to_next_level = next_threshold
