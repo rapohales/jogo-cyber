@@ -50,9 +50,10 @@ func get_xp_required_for_level(level):
 		return xp_thresholds[level]
 		
 func level_up():
-	nivel_att.emit(current_level)
 	current_level += 1
 	current_xp = 0
+	Main.vul_por_nivel(current_level)
+	
 	var previous_threshold = get_xp_required_for_level(current_level - 1)
 	next_threshold = get_xp_required_for_level(current_level)
 	xp_to_next_level = next_threshold
