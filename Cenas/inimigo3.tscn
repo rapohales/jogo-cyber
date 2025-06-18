@@ -1,6 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://4tys4alin4l"]
+[gd_scene load_steps=11 format=3 uid="uid://c22mpvuqlw5n0"]
 
-[ext_resource type="Script" uid="uid://cclfv4w5dsvn0" path="res://Scripts/inimigo_3.gd" id="1_bj5kt"]
+[ext_resource type="Script" uid="uid://cclfv4w5dsvn0" path="res://Cenas/inimigo_3.gd" id="1_bj5kt"]
 [ext_resource type="Texture2D" uid="uid://doeo620pipc0t" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Green/Green1.png" id="1_modu2"]
 [ext_resource type="Texture2D" uid="uid://76n6d2qdeyw2" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Green/Green2.png" id="2_bj5kt"]
 [ext_resource type="Texture2D" uid="uid://djo6nx5mx1sh2" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Green/Green3.png" id="3_2hbjj"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://cu2hcy1a2b4g2" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Green/Green6.png" id="6_swcj2"]
 [ext_resource type="Texture2D" uid="uid://c5k7fard3yg75" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Green/Green7.png" id="7_5ugxj"]
 [ext_resource type="Texture2D" uid="uid://bpiwlw4lfw5lk" path="res://Assets/Viral_Creatures_Pack1/100%_Scaling/PNGs/Green/Green8.png" id="8_xbl4l"]
-[ext_resource type="PackedScene" uid="uid://hs0ihatcxnr0" path="res://Cenas/VidaDisplay.tscn" id="10_2hbjj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m0jiw"]
 animations = [{
@@ -43,15 +42,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7a6x"]
-size = Vector2(29, 30)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqo0c"]
-size = Vector2(29, 29)
-
-[node name="Inimigo3" type="CharacterBody2D" groups=["enemies"]]
-collision_layer = 4
-collision_mask = 4
+[node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_bj5kt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -59,31 +50,4 @@ sprite_frames = SubResource("SpriteFrames_m0jiw")
 frame = 5
 frame_progress = 0.789517
 
-[node name="Hurtbox" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_a7a6x")
-one_way_collision_margin = 0.0
-debug_color = Color(0.603922, 0.47451, 0.701961, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(-0.5, -0.5)
-shape = SubResource("RectangleShape2D_eqo0c")
-
-[node name="Cooldown" type="Timer" parent="."]
-wait_time = 0.1
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.005
-
-[node name="VidaDisplay" parent="." instance=ExtResource("10_2hbjj")]
-position = Vector2(0, -10)
-scale = Vector2(0.5, 0.5)
-
-[connection signal="body_entered" from="Hurtbox" to="." method="_on_body_entered"]
-[connection signal="body_exited" from="Hurtbox" to="." method="_on_body_exited"]
-[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
