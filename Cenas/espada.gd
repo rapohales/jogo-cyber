@@ -29,11 +29,12 @@ func ativar():
 	if proj_cena == null:
 		push_warning("Nenhuma cena de projétil atribuída!")
 		return
-	
+
 	print("Iniciando disparo")
 	bullets_fired = 0
 	is_firing = true
 	_fire_next_bullet()
+
 
 func _fire_next_bullet():
 	if bullets_fired >= amount:
@@ -43,7 +44,7 @@ func _fire_next_bullet():
 	
 	var bullet = proj_cena.instantiate()
 	get_parent().get_parent().add_child(bullet)
-	
+
 	var slash_anim = bullet.get_node("SlashSprite")
 	if not slash_anim:
 		print("Nao achou a animação SlashSprite")

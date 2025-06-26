@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PerguntasCadastradas" load_steps=3 format=3 uid="uid://bia1epcyri7qk"]
+
+[ext_resource type="Script" uid="uid://ce66n2vvd0mp3" path="res://Perguntas/pergunta.gd" id="1_43xt6"]
+[ext_resource type="Script" uid="uid://c0s7dp8hgqspk" path="res://Perguntas/PerguntasCadastradas.gd" id="2_7e6e5"]
+
+[resource]
+script = ExtResource("2_7e6e5")
+perguntas = Array[ExtResource("1_43xt6")]([])
+metadata/_custom_type_script = "uid://c0s7dp8hgqspk"
