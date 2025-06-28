@@ -59,6 +59,11 @@ func tomar_dano(dano):
 	if health <=0:
 		morrer()
 
+func ganhar_vida(vida):
+	vida_ui.value += vida
+	health += vida
+	
+
 func morrer():
 	print("Morreu")
 	queue_free()

@@ -23,10 +23,7 @@ func reset_progressbar_display(cur_xp, next_level):
 	var fireworks = fireworks_scene.instantiate()
 	fireworks.position = $Marker2D.global_position
 	add_child(fireworks)
-	
 	fireworks.emitting = true
-
-	
 	await get_tree().create_timer(2.0).timeout
 	fireworks.queue_free()
 	print("pege %d" % progressbar.max_value)

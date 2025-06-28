@@ -10,10 +10,8 @@ func _input(event: InputEvent) -> void:
 		if current_interations:
 			can_interact = false
 			interact_label.hide()
-			
 			await current_interations[0].interact.call()
 			EventBus.emitir_ui("emitir_ui", "´pmtps") 
-			
 			can_interact  = true
 func _process(_delta: float) -> void:
 	if current_interations and can_interact:

@@ -4,7 +4,6 @@ extends CanvasLayer
 @onready var op2: TextureButton = $Button2
 signal onbotao1down(moedas, segurança, mult)
 signal onbotao2down(moedas, segurança, mult)
-signal temp_dano_inimigo(dano)
 @onready var box = $HBoxContainer
 @onready var boxText = $HBoxContainer/Label
 @onready var sprite = $Sprite2D
@@ -27,6 +26,7 @@ func choose_questions_rand():
 	text1.text = pergunta_selecionada.respostas[0]
 	text2.text = pergunta_selecionada.respostas[1]
 	
+	
 func more_opacity():
 	visible = true
 	var tween = create_tween()
@@ -46,7 +46,7 @@ func less_opacity():
 	tween.tween_property(sprite, "modulate:a", 0.0, 0.5)
 	tween.tween_property(but1, "modulate:a", 0.0, 0.5)
 	tween.tween_property(but2, "modulate:a", 0.0, 0.5)
-	
+	visible = false
 	
 func _on_event(event_name: String, _data: Variant):
 	if event_name == "emitir_ui": 
@@ -57,6 +57,7 @@ func _on_event(event_name: String, _data: Variant):
 func _on_button_button_down() -> void:
 	onbotao1down.emit(pergunta_selecionada.r1_dinheiro, pergunta_selecionada.r1_seguranca, pergunta_selecionada.r1_mult)
 	less_opacity()
+
 
 func _on_button_2_button_down() -> void:
 	onbotao2down.emit(pergunta_selecionada.r2_dinheiro, pergunta_selecionada.r2_seguranca, pergunta_selecionada.r2_mult)

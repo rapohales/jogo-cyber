@@ -45,6 +45,7 @@ font = ExtResource("4_ljl62")
 font_size = 14
 
 [node name="Questions" type="CanvasLayer"]
+layer = 2
 script = ExtResource("1_s6nhl")
 perguntas = Array[ExtResource("2_xbf21")]([SubResource("Resource_ljl62"), SubResource("Resource_gss22")])
 

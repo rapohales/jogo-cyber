@@ -8,4 +8,8 @@ script = ExtResource("1_rqesr")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 15.0
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
