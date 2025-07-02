@@ -24,6 +24,7 @@ func _ready() -> void:
 
 func _on_timer_timeout() -> void:
 	player.tomar_dano(1)
+
 	
 func _on_cooldown_timeout() -> void:
 	is_happening = false
