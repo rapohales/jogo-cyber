@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://2u46uhpqdnxy"]
+
+[ext_resource type="Texture2D" uid="uid://bwts30q76ga5k" path="res://Assets/UI Bundle/UI Bundle/CyberTheme.png" id="1_au5ts"]
+[ext_resource type="FontFile" uid="uid://bku1m2d5f0ncj" path="res://Assets/Font/Pixellari.ttf" id="2_p1pek"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r7pgh"]
+line_spacing = 2.0
+font = ExtResource("2_p1pek")
+font_size = 15
+font_color = Color(0.726942, 0.547964, 0.988016, 1)
+
+[node name="InterfaceEvento" type="CanvasLayer"]
+scale = Vector2(3, 3)
+transform = Transform2D(3, 0, 0, 3, 0, 0)
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 501.0
+offset_bottom = 236.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(255.19, 114.917)
+scale = Vector2(1.92857, 1.92857)
+texture = ExtResource("1_au5ts")
+region_enabled = true
+region_rect = Rect2(659, 178, 88, 77)
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 191.191
+offset_top = 69.9167
+offset_right = 315.191
+offset_bottom = 161.917
+text = "Você sofreu um 
+vazamento de 
+dados! Sua vida
+irá descer 
+gradativamente"
+label_settings = SubResource("LabelSettings_r7pgh")

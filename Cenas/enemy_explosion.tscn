@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://o7mcyj2h6g0h"]
+
+[node name="EnemyExplosion" type="CPUParticles2D"]
+emitting = false
+amount = 60
+lifetime = 0.8
+one_shot = true
+explosiveness = 1.0
+randomness = 0.12
+lifetime_randomness = 0.12
+spread = 180.0
+gravity = Vector2(0, 50)
+initial_velocity_min = 28.4
+initial_velocity_max = 58.4
+angular_velocity_max = 218.18
+linear_accel_max = 24.24
+radial_accel_min = 16.16
+radial_accel_max = 16.16
+scale_amount_min = 0.0
+scale_amount_max = 2.0
