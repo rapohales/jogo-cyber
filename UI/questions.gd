@@ -74,8 +74,6 @@ func _on_button_button_down() -> void:
 	less_opacity()
 	$TextureButton.texture_normal = $TextureButton.texture_disabled
 
-
-
 func _on_button_2_button_down() -> void:
 	onbotao2down.emit(pergunta_selecionada.r2_dinheiro, pergunta_selecionada.r2_seguranca, pergunta_selecionada.r2_mult)
 	$TextureButton2.texture_normal = $TextureButton2.texture_pressed
