@@ -23,7 +23,8 @@ func _ready() -> void:
 		$Cooldown.start()
 
 func _on_timer_timeout() -> void:
-d	player.tomar_dano(1)
+	player.tomar_dano(1)
+
 	
 func _on_cooldown_timeout() -> void:
 	is_happening = false

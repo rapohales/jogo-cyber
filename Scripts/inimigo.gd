@@ -9,7 +9,9 @@ var max_speed = 90
 @export var health: int = 100
 @export var dano: int = 10
 @export var dano_dado: float = 1
+@export var xp_amount = 20
 var pode_causar_dano = true
+var fireworks_scene = preload("res://Cenas/enemy_explosion.tscn")
 var intervalo_de_dano = 0.5
 @onready var cd = $Cooldown
 var jogador = null
@@ -17,7 +19,7 @@ signal morreu;
 var valor = 10
 @onready var sprite = $AnimatedSprite2D
 var current_frame := 0
-var animation_speed = 0.2  # Velocidade da animação
+var animation_speed = 0.2  
 var timer = 0.0
 
 func _ready():
@@ -36,7 +38,6 @@ func animate_run(delta: float, direction: Vector2):
 	timer += delta
 	if velocity.length() > 0:
 		sprite.flip_h = direction.x < 0
-		
 		if timer >= animation_speed:
 			timer = 0.0
 			current_frame = (current_frame + 1) % 4
@@ -46,17 +47,23 @@ func animate_run(delta: float, direction: Vector2):
 
 func tomarDano(_dano):
 	health -= _dano
+	$VidaDisplay.update_healthbar(health)
+	var tween = create_tween()
+	tween.tween_property(self, "modulate", Color(2, 0.5, 0.5), 0.1)
+	tween.tween_property(self, "modulate", Color(1, 1, 1), 0.3)
+	
 	if health <= 0:
 		morrer()
 func morrer():
 	emit_signal('morreu', valor)
+	var xp = player.get_node("Xp2")
+	xp.add_xp(20)
 	queue_free()
 	
 func _on_questions_temp_dano_inimigo(_dano: Variant) -> void:
 	health -= _dano
 	tomarDano(_dano)
-	$VidaDisplay.update_healthbar(health)
-
+	
 func _on_body_entered(body):
 	if body.is_in_group("jogador"):
 		jogador = body
@@ -74,7 +81,6 @@ func causar_dano():
 			jogador.tomar_dano(dano_dado)
 			pode_causar_dano = false
 			cd.start()
-
 
 func _on_cooldown_timeout() -> void:
 	pode_causar_dano = true

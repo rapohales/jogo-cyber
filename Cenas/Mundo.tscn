@@ -1,3 +1,4 @@
+Gabriel---Branch
 [gd_scene load_steps=42 format=4 uid="uid://6i8a8il2mpwd"]
 
 [ext_resource type="Script" uid="uid://ddp4l8pqchl4u" path="res://Scripts/main.gd" id="1_8trbm"]
@@ -46,6 +47,7 @@ texture = ExtResource("3_feos1")
 [sub_resource type="TileSet" id="TileSet_gejyx"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_xywc0")
+
 
 [sub_resource type="Resource" id="Resource_qb65n"]
 script = ExtResource("12_p3fmm")
@@ -287,6 +289,30 @@ r2_dinheiro = -400
 r2_seguranca = -10
 metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
 
+=======
+[sub_resource type="Resource" id="Resource_4wu8b"]
+script = ExtResource("12_p3fmm")
+texto = "Seu servidor foi invadido! O que você faz?"
+respostas = Array[String](["Contrato uma equipe especializada", "Tento resolver sozinho com tutoriais online"])
+r1_mult = 0.0
+r1_dinheiro = -50
+r1_seguranca = 2
+r2_mult = 1.5
+r2_dinheiro = 0
+r2_seguranca = 0
+metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
+
+[sub_resource type="Resource" id="Resource_p3fmm"]
+script = ExtResource("12_p3fmm")
+texto = "Você precisa fazer o Back-end do seu sistema. O que você faz?"
+respostas = Array[String](["Uso o chatGPT pra fazer o código inteiro", "Contrato um desenvolvedor apropriado"])
+r1_mult = 1.3
+r1_dinheiro = 0
+r1_seguranca = 0
+r2_mult = 0.0
+r2_dinheiro = -50
+r2_seguranca = 2
+metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
 [node name="Mundo" type="Node2D"]
 y_sort_enabled = true
 position = Vector2(85, 74)
@@ -371,7 +397,10 @@ position = Vector2(274, 272)
 offset = Vector2(0, 0.255)
 scale = Vector2(1.05, 1)
 transform = Transform2D(1.05, 0, 0, 1, 0, 0.255)
+Gabriel---Branch
 perguntas = Array[ExtResource("12_p3fmm")]([SubResource("Resource_qb65n"), SubResource("Resource_ju85c"), SubResource("Resource_rlr5u"), SubResource("Resource_35k2l"), SubResource("Resource_85lsj"), SubResource("Resource_3p4dr"), SubResource("Resource_ex51s"), SubResource("Resource_32fci"), SubResource("Resource_801cj"), SubResource("Resource_phiji"), SubResource("Resource_womql"), SubResource("Resource_c0id6"), SubResource("Resource_e6h0a"), SubResource("Resource_cd2si"), SubResource("Resource_5n2s7"), SubResource("Resource_y4e6c"), SubResource("Resource_fpnjq"), SubResource("Resource_ty4cb"), SubResource("Resource_038u5"), SubResource("Resource_4frxg")])
+
+
 
 [node name="Currency" type="Node" parent="."]
 script = ExtResource("9_feos1")

@@ -1,15 +1,16 @@
 extends CharacterBody2D
 
-const speed = 200
-
-# Variáveis originais (mantidas intactas)
+@export var speed = 200.0
+@export var health_regen: float = 1.0
 @export var health = 100
+@export var max_health = 100
 @onready var animation_player = $AnimationPlayer
 @onready var anim_tree = $AnimationTree
 @onready var sprite = $AnimatedSprite2D
 var can_take_damage := true
 var invulnerability_time := 1
 @onready var vida_ui = $VidaDisplay/HealthBar
+
 
 # Sistema de esquivas
 var dodge_speed = 400
@@ -19,6 +20,8 @@ var max_dodge_charges = 3
 var dodge_charges = 3
 var is_dodging = false
 var dodge_recharge_timer = Timer.new()
+
+@export var cena_espada : PackedScene
 
 @onready var state_machine = anim_tree.get("parameters/playback")
 
@@ -31,7 +34,6 @@ func _ready() -> void:
 	add_child(dodge_recharge_timer)
 	dodge_recharge_timer.wait_time = dodge_cooldown
 	dodge_recharge_timer.timeout.connect(_replenish_dodge)
-	
 	update_animation(start_direction)
 	_update_dodge_ui()  # Atualiza UI inicial
 
@@ -39,7 +41,7 @@ func _update_dodge_ui():
 	# Emite o sinal para atualizar a UI
 	if Engine.has_singleton("EventBus"):
 		EventBus.emit_signal("atualizar_esquivas", dodge_charges, max_dodge_charges)
-
+	
 func _replenish_dodge():
 	if dodge_charges < max_dodge_charges:
 		dodge_charges += 1
@@ -56,6 +58,11 @@ func tomar_dano(dano):
 	if health <=0:
 		morrer()
 
+func ganhar_vida(vida):
+	vida_ui.value += vida
+	health += vida
+	
+
 func morrer():
 	print("Morreu")
 	queue_free()
@@ -69,7 +76,8 @@ func pegar_input():
 	
 	if Input.is_action_just_pressed("dodge") and dodge_charges > 0 and not is_dodging:
 		start_dodge()
-
+		
+	
 func start_dodge():
 	dodge_charges -= 1
 	_update_dodge_ui()
@@ -119,3 +127,10 @@ func estado_animacao():
 
 func _on_vul_timer_timeout() -> void:
 	can_take_damage = true
+	
+
+
+func _on_health_regen_timeout() -> void:
+	if health <= max_health:
+		print("vida")
+		ganhar_vida(health_regen)

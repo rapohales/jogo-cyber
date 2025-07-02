@@ -5,9 +5,10 @@ var min_speed = 70
 var max_speed = 100
 @export var speed: int = randi() % ((max_speed) - (min_speed)) + (min_speed)
 @export var player: Node2D  
-@export var max_health: int = 100
+@export var max_health: int = 80
 @export var health: int = 100
 @export var dano: int = 10
+@export var xp_amount = 30
 @export var dano_dado: float = 1
 var pode_causar_dano = true
 var intervalo_de_dano = 0.5
@@ -46,10 +47,17 @@ func animate_run(delta: float, direction: Vector2):
 
 func tomarDano(_dano):
 	health -= _dano
+	$VidaDisplay.update_healthbar(health)
+	var tween = create_tween()
+	tween.tween_property(self, "modulate", Color(2, 0.5, 0.5), 0.1)
+	# Volta para a cor normal
+	tween.tween_property(self, "modulate", Color(1, 1, 1), 0.3)
 	if health <= 0:
 		morrer()
 func morrer():
 	emit_signal('morreu', valor)
+	var xp = player.get_node("Xp2")
+	xp.add_xp(20)
 	queue_free()
 	
 func _on_questions_temp_dano_inimigo(_dano: Variant) -> void:
