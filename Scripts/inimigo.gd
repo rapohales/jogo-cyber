@@ -51,6 +51,7 @@ func tomarDano(_dano):
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color(2, 0.5, 0.5), 0.1)
 	tween.tween_property(self, "modulate", Color(1, 1, 1), 0.3)
+	
 	if health <= 0:
 		morrer()
 func morrer():
@@ -58,8 +59,6 @@ func morrer():
 	var xp = player.get_node("Xp2")
 	xp.add_xp(20)
 	queue_free()
-	
-
 	
 func _on_questions_temp_dano_inimigo(_dano: Variant) -> void:
 	health -= _dano
@@ -82,7 +81,6 @@ func causar_dano():
 			jogador.tomar_dano(dano_dado)
 			pode_causar_dano = false
 			cd.start()
-
 
 func _on_cooldown_timeout() -> void:
 	pode_causar_dano = true

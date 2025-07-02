@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://6i8a8il2mpwd"]
+[gd_scene load_steps=24 format=4 uid="uid://6i8a8il2mpwd"]
 
 [ext_resource type="Script" uid="uid://ddp4l8pqchl4u" path="res://Scripts/main.gd" id="1_8trbm"]
 [ext_resource type="TileSet" uid="uid://3scimsm6nob5" path="res://PixelNature_Sprites/Mundo.tres" id="2_25bfp"]
@@ -12,11 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://1srfhedrakwv" path="res://UI/Questions.tscn" id="8_25bfp"]
 [ext_resource type="PackedScene" uid="uid://h4ycdlf3l2gl" path="res://Scripts/Espada.tscn" id="8_a0d8t"]
 [ext_resource type="Script" uid="uid://dbfgvt6w3f30r" path="res://Scripts/currency.gd" id="9_feos1"]
-[ext_resource type="Script" uid="uid://ce66n2vvd0mp3" path="res://Perguntas/pergunta.gd" id="12_p3fmm"]
+[ext_resource type="Texture2D" uid="uid://46sarle6cie" path="res://Assets/Light/light.png" id="9_qb65n"]
+[ext_resource type="Script" uid="uid://ce66n2vvd0mp3" path="res://Resources/pergunta.gd" id="12_p3fmm"]
 [ext_resource type="AudioStream" uid="uid://cvohs01yr5k8u" path="res://Sounds/MainMusic.mp3" id="14_4wu8b"]
 [ext_resource type="Script" uid="uid://q3nirk7b8axa" path="res://Cenas/event_handler.gd" id="15_xisxj"]
 [ext_resource type="PackedScene" uid="uid://d1usl1ipxy0hd" path="res://Cenas/Cenas_eventos/vazamento_dados.tscn" id="16_0tppn"]
 [ext_resource type="PackedScene" uid="uid://cgk20cqakgiir" path="res://Cenas/HealthItem.tscn" id="17_dva7o"]
+[ext_resource type="PackedScene" uid="uid://bf3ob33fy7udm" path="res://Cenas/Loja.tscn" id="18_seqde"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xywc0"]
 texture = ExtResource("3_feos1")
@@ -136,6 +138,13 @@ script = ExtResource("6_p3fmm")
 
 [node name="Espada" parent="Player" instance=ExtResource("8_a0d8t")]
 
+[node name="PointLight2D" type="PointLight2D" parent="Player"]
+color = Color(0.485703, 0.485704, 0.485703, 1)
+range_z_min = -4
+shadow_enabled = true
+texture = ExtResource("9_qb65n")
+texture_scale = 2.39
+
 [node name="Ui" parent="." instance=ExtResource("5_oyce6")]
 
 [node name="Chest" parent="." instance=ExtResource("7_p3fmm")]
@@ -150,6 +159,7 @@ perguntas = Array[ExtResource("12_p3fmm")]([SubResource("Resource_4wu8b"), SubRe
 
 [node name="Currency" type="Node" parent="."]
 script = ExtResource("9_feos1")
+moedas = 10000.0
 
 [node name="Coin_timer" type="Timer" parent="."]
 autostart = true
@@ -164,20 +174,17 @@ volume_db = -3.643
 autoplay = true
 parameters/looping = false
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-color = Color(0.901863, 0.662937, 3.85046e-07, 1)
-energy = 0.45
-shadow_color = Color(0, 0, 0, 0.627451)
-shadow_filter = 1
-shadow_item_cull_mask = 7
-height = 0.56
-max_distance = 8976.0
-
 [node name="EventHandler" type="Node" parent="."]
 script = ExtResource("15_xisxj")
 cada_evento = Array[PackedScene]([ExtResource("16_0tppn")])
 
 [node name="HealthItem" parent="." instance=ExtResource("17_dva7o")]
+
+[node name="Loja" parent="." instance=ExtResource("18_seqde")]
+layer = 2
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.714033, 0.453314, 0.295235, 1)
 
 [connection signal="nivel_att" from="Player/Xp2" to="." method="_on_xp_2_nivel_att"]
 [connection signal="onbotao1down" from="Questions" to="Currency" method="_on_questions_onbotao_1_down"]

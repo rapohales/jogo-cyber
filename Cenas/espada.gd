@@ -1,12 +1,11 @@
 extends Node2D
-
 @export var damage = 40
 @export var amount = 2
 @export var speed = 500
 @export var proj_cena: PackedScene
-@export var fire_delay: float = 0.1 
+@export var fire_delay: float = 0.1
 var is_right: bool = true
-
+@onready var cooldown = $CoolDown
 var player: Node2D 
 var bullets_fired = 0
 var is_firing = false
@@ -81,3 +80,16 @@ func _on_cool_down_timeout() -> void:
 
 func _on_time_alive_timeout() -> void:
 	pass
+
+func aumentar_dano():
+	print(damage)
+	damage += 5
+
+func aumentar_tiros():
+	amount += 1
+
+func aumentar_range():
+	pass
+
+func aumentar_rate():
+	cooldown.wait_time -= 0.1

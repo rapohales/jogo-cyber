@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="UpgradeDb" load_steps=7 format=3 uid="uid://cijn8m3t77uic"]
+
+[ext_resource type="Script" uid="uid://byfgdncxh5s71" path="res://Resources/upgrade_db.gd" id="1_bh6bj"]
+[ext_resource type="Script" uid="uid://b780e7oteto45" path="res://Resources/upgrades.gd" id="2_2pam7"]
+
+[sub_resource type="Resource" id="Resource_o74w1"]
+script = ExtResource("2_2pam7")
+id = 0
+nome = "Aumentar Vida"
+description = "Aumenta a vida do player em 10"
+Arma = "No"
+preco = 50
+metodo = "aumentar_vida"
+metadata/_custom_type_script = "uid://b780e7oteto45"
+
+[sub_resource type="Resource" id="Resource_bh6bj"]
+script = ExtResource("2_2pam7")
+id = 1
+nome = "Aumentar velocidade"
+description = "Aumenta a velocidade do player"
+Arma = "No"
+preco = 40
+metodo = "aumentar_velocidade"
+metadata/_custom_type_script = "uid://b780e7oteto45"
+
+[sub_resource type="Resource" id="Resource_2pam7"]
+script = ExtResource("2_2pam7")
+id = 2
+nome = "Aumentar projéteis da espada"
+description = "Aumenta os projéteis da espada em +1"
+Arma = "Espada"
+preco = 60
+metodo = "aumentar_tiros"
+metadata/_custom_type_script = "uid://b780e7oteto45"
+
+[sub_resource type="Resource" id="Resource_h3giq"]
+script = ExtResource("2_2pam7")
+id = 3
+nome = "Aumentar dano da Espada"
+description = "Aumenta o dano da sua espada em 5"
+Arma = "Espada"
+preco = 65
+metodo = "aumentar_dano"
+metadata/_custom_type_script = "uid://b780e7oteto45"
+
+[resource]
+script = ExtResource("1_bh6bj")
+upgrades = Array[ExtResource("2_2pam7")]([SubResource("Resource_o74w1"), SubResource("Resource_bh6bj"), SubResource("Resource_2pam7"), SubResource("Resource_h3giq")])
+metadata/_custom_type_script = "uid://byfgdncxh5s71"

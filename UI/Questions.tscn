@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://1srfhedrakwv"]
+[gd_scene load_steps=18 format=3 uid="uid://1srfhedrakwv"]
 
 [ext_resource type="Script" uid="uid://bjfh0yu6c7yv4" path="res://UI/questions.gd" id="1_s6nhl"]
 [ext_resource type="Texture2D" uid="uid://bwts30q76ga5k" path="res://Assets/UI Bundle/UI Bundle/CyberTheme.png" id="2_fjxn8"]
-[ext_resource type="Script" uid="uid://ce66n2vvd0mp3" path="res://Perguntas/pergunta.gd" id="2_xbf21"]
+[ext_resource type="Script" uid="uid://ce66n2vvd0mp3" path="res://Resources/pergunta.gd" id="2_xbf21"]
+[ext_resource type="Texture2D" uid="uid://q83s26yuajx1" path="res://Assets/UI Bundle/UI Bundle/CyberTheme2.png" id="4_gss22"]
 [ext_resource type="FontFile" uid="uid://bku1m2d5f0ncj" path="res://Assets/Font/Pixellari.ttf" id="4_ljl62"]
+[ext_resource type="Texture2D" uid="uid://dglv7gr00qa7y" path="res://Assets/UI Bundle/UI Bundle/BlackandWhiteUI.png" id="6_08fsj"]
 
 [sub_resource type="Resource" id="Resource_ljl62"]
 script = ExtResource("2_xbf21")
@@ -30,19 +32,41 @@ r2_seguranca = 0
 metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
 
 [sub_resource type="LabelSettings" id="LabelSettings_xbf21"]
+font = ExtResource("4_ljl62")
 font_color = Color(0.58121, 0.225699, 0.937304, 1)
+outline_size = 2
+shadow_size = 2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljl62"]
 atlas = ExtResource("2_fjxn8")
-region = Rect2(291, 36, 88, 26)
+region = Rect2(290, 35, 90, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08fsj"]
+atlas = ExtResource("4_gss22")
+region = Rect2(385, 33, 94, 32)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ljl62"]
 font = ExtResource("4_ljl62")
 font_size = 15
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_gss22"]
+atlas = ExtResource("4_gss22")
+region = Rect2(385, 34, 94, 31)
+
 [sub_resource type="LabelSettings" id="LabelSettings_gss22"]
 font = ExtResource("4_ljl62")
 font_size = 14
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b210v"]
+atlas = ExtResource("6_08fsj")
+region = Rect2(321, 257, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibpsj"]
+atlas = ExtResource("6_08fsj")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ko0fh"]
+atlas = ExtResource("6_08fsj")
+region = Rect2(321, 273, 14, 14)
 
 [node name="Questions" type="CanvasLayer"]
 layer = 2
@@ -58,7 +82,7 @@ region_enabled = true
 region_rect = Rect2(3, 273, 170, 62)
 
 [node name="HBoxContainer" type="VBoxContainer" parent="."]
-modulate = Color(1, 1, 1, 0)
+modulate = Color(0.679, 0.679, 0.679, 0)
 self_modulate = Color(1, 1, 1, 0)
 offset_left = 357.0
 offset_top = 474.0
@@ -84,6 +108,8 @@ offset_top = 554.0
 offset_right = 1000.0
 offset_bottom = 622.0
 texture_normal = SubResource("AtlasTexture_ljl62")
+texture_pressed = SubResource("AtlasTexture_08fsj")
+texture_hover = SubResource("AtlasTexture_08fsj")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="Button"]
@@ -107,6 +133,8 @@ offset_top = 554.0
 offset_right = 722.0
 offset_bottom = 622.0
 texture_normal = SubResource("AtlasTexture_ljl62")
+texture_pressed = SubResource("AtlasTexture_gss22")
+texture_hover = SubResource("AtlasTexture_gss22")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="Button2"]
@@ -120,6 +148,25 @@ label_settings = SubResource("LabelSettings_gss22")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="TextureButton" type="TextureButton" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 459.0
+offset_top = 579.0
+offset_right = 473.0
+offset_bottom = 593.0
+scale = Vector2(2, 2)
+texture_normal = SubResource("AtlasTexture_b210v")
+texture_pressed = SubResource("AtlasTexture_ibpsj")
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 736.0
+offset_top = 583.0
+offset_right = 750.0
+offset_bottom = 597.0
+scale = Vector2(2, 2)
+texture_normal = SubResource("AtlasTexture_ko0fh")
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="Button2" to="." method="_on_button_2_button_down"]

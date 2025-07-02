@@ -4,6 +4,8 @@ extends CanvasLayer
 @onready var op2: TextureButton = $Button2
 signal onbotao1down(moedas, segurança, mult)
 signal onbotao2down(moedas, segurança, mult)
+@onready var key1 = $TextureButton
+@onready var key2 = $TextureButton2
 @onready var box = $HBoxContainer
 @onready var boxText = $HBoxContainer/Label
 @onready var sprite = $Sprite2D
@@ -25,7 +27,14 @@ func choose_questions_rand():
 	boxText.text = pergunta_selecionada.texto
 	text1.text = pergunta_selecionada.respostas[0]
 	text2.text = pergunta_selecionada.respostas[1]
-	
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("botao1"):
+		but1.button_pressed
+		_on_button_button_down()
+	if event.is_action_pressed("botao2"):
+		but1.button_pressed
+		_on_button_2_button_down()
 	
 func more_opacity():
 	visible = true
@@ -36,6 +45,8 @@ func more_opacity():
 	tween.tween_property(sprite, "modulate:a", 1.0, 0.3)
 	tween.tween_property(but1, "modulate:a", 1.0, 0.3)
 	tween.tween_property(but2, "modulate:a", 1.0, 0.3)
+	tween.tween_property(key1, "modulate:a", 1.0, 0.3)
+	tween.tween_property(key2, "modulate:a", 1.0, 0.3)
 
 
 func less_opacity():
@@ -46,7 +57,9 @@ func less_opacity():
 	tween.tween_property(sprite, "modulate:a", 0.0, 0.5)
 	tween.tween_property(but1, "modulate:a", 0.0, 0.5)
 	tween.tween_property(but2, "modulate:a", 0.0, 0.5)
-	visible = false
+	tween.tween_property(key1, "modulate:a", 0.0, 0.5)
+	tween.tween_property(key2, "modulate:a", 0.0, 0.5)
+	
 	
 func _on_event(event_name: String, _data: Variant):
 	if event_name == "emitir_ui": 
@@ -56,9 +69,15 @@ func _on_event(event_name: String, _data: Variant):
 
 func _on_button_button_down() -> void:
 	onbotao1down.emit(pergunta_selecionada.r1_dinheiro, pergunta_selecionada.r1_seguranca, pergunta_selecionada.r1_mult)
+	$TextureButton.texture_disabled = $TextureButton.texture_normal
+	$TextureButton.texture_normal = $TextureButton.texture_pressed
 	less_opacity()
+	$TextureButton.texture_normal = $TextureButton.texture_disabled
+
 
 
 func _on_button_2_button_down() -> void:
 	onbotao2down.emit(pergunta_selecionada.r2_dinheiro, pergunta_selecionada.r2_seguranca, pergunta_selecionada.r2_mult)
+	$TextureButton2.texture_normal = $TextureButton2.texture_pressed
 	less_opacity()
+	$TextureButton2.texture_normal = $TextureButton2.texture_pressed

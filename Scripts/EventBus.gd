@@ -11,6 +11,7 @@ signal atualizar_esquivas(current_charges, max_charges)
 signal get_mult(cur_mult)
 signal get_seg(cur_seg)
 signal get_din(cur_din)
+signal loja_ui
 
 func _atualizar_ui_reset_progressbar(cur_xp, next_level):
 	atualizar_ui_reset_progressbar.emit(cur_xp, next_level)
@@ -37,7 +38,11 @@ func pegar_din(dinheiro):
 
 func emitir_ui(event_name: String, data = null) -> void:
 	event_triggered.emit(event_name, data)
+
+func abrir_loja():
+	loja_ui.emit()
 	
+
 func atualizar_score(score :int, seguranca) -> void:
 	atualizar_score_out.emit(score, seguranca)
 	

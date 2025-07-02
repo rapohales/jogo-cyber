@@ -15,24 +15,24 @@ var xp_thresholds = {
 	5: 700,
 	6: 1000,
 	7: 1400,
-	8: 2000,
-	9: 2500,
-	10: 3500,
-	11: 4600,
-	12: 5300,
-	13: 450,
-	14: 450,
-	15: 450,
-	16: 450,
-	17: 450,
-	18: 450,
-	19: 450,
-	20: 450,
-	21: 450,
-	22: 450,
-	23: 450,
-	24: 450,
-	25: 450,
+	8: 1400,
+	9: 1500,
+	10: 1500,
+	11: 1500,
+	12: 1600,
+	13: 1700,
+	14: 1800,
+	15: 1800,
+	16: 1800,
+	17: 1900,
+	18: 2000,
+	19: 2000,
+	20: 2000,
+	21: 2000,
+	22: 2000,
+	23: 2300,
+	24: 2400,
+	25: 2400,
 	
 	   
 }
@@ -59,9 +59,10 @@ func level_up():
 	xp_to_next_level = next_threshold
 	var farofa = xp_thresholds.get(current_level + 1, 0)
 	EventBus._atualizar_ui_reset_progressbar(current_xp, farofa)
-	if current_level == 3 or current_level == 7 or current_level == 10 or current_level == 15:
-		EventBus.emitir_ui("emitir_ui", "´pmtps")
-		pass
+	var niveis_questao: Array = [3, 5, 7, 10, 12, 14, 17, 19, 20, 21, 22, 24, 26, 27, 28, 29,30]
+	for i in niveis_questao.size():
+		if current_level == niveis_questao[i]:
+			EventBus.emitir_ui("emitir_ui", "´pmtps")
 
 
 func _on_inimigo_morreu(valor) -> void:

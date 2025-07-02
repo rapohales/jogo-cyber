@@ -1,0 +1,105 @@
+[gd_scene load_steps=7 format=3 uid="uid://bf3ob33fy7udm"]
+
+[ext_resource type="Script" uid="uid://u2el7cdqnljq" path="res://Cenas/loja.gd" id="1_008ou"]
+[ext_resource type="Texture2D" uid="uid://duabr3vo7yolg" path="res://Assets/2D Chests & Coins/loja-button3.png" id="1_yd1o6"]
+[ext_resource type="Texture2D" uid="uid://buqpcj67kdu4l" path="res://Assets/2D Chests & Coins/loja-button1.png" id="2_hr481"]
+[ext_resource type="Texture2D" uid="uid://42yml3qq1txc" path="res://Assets/UI Bundle/UI Bundle/CozyUi.png" id="3_hr481"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_008ou"]
+atlas = ExtResource("3_hr481")
+region = Rect2(261, 544, 87, 82)
+
+[sub_resource type="LabelSettings" id="LabelSettings_008ou"]
+
+[node name="Loja" type="CanvasLayer"]
+scale = Vector2(1.5, 1.5)
+transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
+script = ExtResource("1_008ou")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 856.667
+offset_top = 223.333
+offset_right = 984.667
+offset_bottom = 287.333
+texture_normal = ExtResource("1_yd1o6")
+texture_pressed = ExtResource("2_hr481")
+texture_hover = ExtResource("2_hr481")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+offset_left = 246.0
+offset_top = 28.0
+offset_right = 772.0
+offset_bottom = 440.0
+texture = SubResource("AtlasTexture_008ou")
+
+[node name="Button" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_left = 39.3333
+offset_top = 211.333
+offset_right = 185.333
+offset_bottom = 281.333
+text_overrun_behavior = 2
+autowrap_mode = 2
+
+[node name="Valor" type="Label" parent="TextureRect/Button"]
+layout_mode = 0
+offset_left = 33.3333
+offset_top = 78.6667
+offset_right = 73.3333
+offset_bottom = 101.667
+label_settings = SubResource("LabelSettings_008ou")
+
+[node name="Button2" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 211.333
+offset_right = 336.0
+offset_bottom = 281.333
+text_overrun_behavior = 2
+autowrap_mode = 2
+
+[node name="Valor" type="Label" parent="TextureRect/Button2"]
+layout_mode = 0
+offset_left = 19.3333
+offset_top = 80.6667
+offset_right = 59.3333
+offset_bottom = 103.667
+
+[node name="Button3" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_left = 341.333
+offset_top = 210.667
+offset_right = 487.333
+offset_bottom = 280.667
+text_overrun_behavior = 2
+autowrap_mode = 2
+
+[node name="Valor" type="Label" parent="TextureRect/Button3"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 82.0
+offset_right = 52.0
+offset_bottom = 105.0
+
+[node name="Comprar" type="Button" parent="TextureRect"]
+visible = false
+layout_mode = 0
+offset_left = 388.667
+offset_top = 336.0
+offset_right = 476.667
+offset_bottom = 367.0
+text = "COMPRAR"
+text_overrun_behavior = 2
+autowrap_mode = 2
+
+[node name="AttLoja" type="Timer" parent="."]
+wait_time = 60.0
+autostart = true
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="TextureRect/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TextureRect/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="TextureRect/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="TextureRect/Comprar" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="AttLoja" to="." method="_on_att_loja_timeout"]
