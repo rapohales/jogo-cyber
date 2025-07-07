@@ -18,7 +18,7 @@
 [ext_resource type="Script" uid="uid://q3nirk7b8axa" path="res://Cenas/event_handler.gd" id="15_xisxj"]
 [ext_resource type="PackedScene" uid="uid://d1usl1ipxy0hd" path="res://Cenas/Cenas_eventos/vazamento_dados.tscn" id="16_0tppn"]
 [ext_resource type="PackedScene" uid="uid://cgk20cqakgiir" path="res://Cenas/HealthItem.tscn" id="17_dva7o"]
-[ext_resource type="PackedScene" uid="uid://bf3ob33fy7udm" path="res://Cenas/Loja.tscn" id="18_seqde"]
+[ext_resource type="PackedScene" uid="uid://c7h1dllamy0vv" path="res://Cenas/Loja.tscn" id="18_seqde"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xywc0"]
 texture = ExtResource("3_feos1")
