@@ -29,9 +29,18 @@ func choose_questions_rand():
 	text2.text = pergunta_selecionada.respostas[1]
 
 func _input(event: InputEvent) -> void:
+<<<<<<< HEAD
 	if event.is_action_pressed("botao2"):
 		_on_button_button_down()
 	if event.is_action_pressed("botao1"):
+=======
+	if event.is_action_pressed("botao2"):
+		_on_button_button_down()
+	if event.is_action_pressed("botao1"):
+	if event.is_action_pressed("botao1"):
+		_on_button_button_down()
+	if event.is_action_pressed("botao2"):
+>>>>>>> fc0b4d5242dee1699e6643de5894459be20ca9b1
 		_on_button_2_button_down()
 	
 func more_opacity():
@@ -68,7 +77,15 @@ func _on_event(event_name: String, _data: Variant):
 func _on_button_button_down() -> void:
 	onbotao1down.emit(pergunta_selecionada.r1_dinheiro, pergunta_selecionada.r1_seguranca, pergunta_selecionada.r1_mult)
 	less_opacity()
+<<<<<<< HEAD
 
 func _on_button_2_button_down() -> void:
 	onbotao2down.emit(pergunta_selecionada.r2_dinheiro, pergunta_selecionada.r2_seguranca, pergunta_selecionada.r2_mult)
 	less_opacity()
+=======
+  
+func _on_button_2_button_down() -> void:
+	onbotao2down.emit(pergunta_selecionada.r2_dinheiro, pergunta_selecionada.r2_seguranca, pergunta_selecionada.r2_mult)
+	less_opacity()
+
+>>>>>>> fc0b4d5242dee1699e6643de5894459be20ca9b1

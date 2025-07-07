@@ -1,4 +1,5 @@
-[gd_scene load_steps=24 format=4 uid="uid://6i8a8il2mpwd"]
+Gabriel---Branch
+[gd_scene load_steps=42 format=4 uid="uid://6i8a8il2mpwd"]
 
 [ext_resource type="Script" uid="uid://ddp4l8pqchl4u" path="res://Scripts/main.gd" id="1_8trbm"]
 [ext_resource type="TileSet" uid="uid://3scimsm6nob5" path="res://PixelNature_Sprites/Mundo.tres" id="2_25bfp"]
@@ -47,6 +48,248 @@ texture = ExtResource("3_feos1")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_xywc0")
 
+
+[sub_resource type="Resource" id="Resource_qb65n"]
+script = ExtResource("12_p3fmm")
+texto = "Um colega pede sua senha para terminar uma tarefa. O que será feito?"
+respostas = Array[String](["Dou minha senha, pois confio nele", "Recuso e lembro que senhas são pessoais"])
+r1_mult = 0.0
+r1_dinheiro = 0
+r1_seguranca = -1
+r2_mult = 0.0
+r2_dinheiro = 15
+r2_seguranca = 1
+metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
+
+[sub_resource type="Resource" id="Resource_ju85c"]
+script = ExtResource("12_p3fmm")
+texto = "O que DEVE SER feito ao identificar um software desatualizado em um sistema crítico?"
+respostas = Array[String](["Atualizar imediatamente ou aplicar patches de segurança", " Ignorar, pois se funcionar, não há problema"])
+r1_mult = 0.0
+r1_dinheiro = 30
+r1_seguranca = 2
+r2_mult = 0.0
+r2_dinheiro = 0
+r2_seguranca = -2
+metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
+
+[sub_resource type="Resource" id="Resource_rlr5u"]
+script = ExtResource("12_p3fmm")
+texto = "Seu computador pede para atualizar o sistema. O que será feito?"
+respostas = Array[String]([" Ignoro, pois demora muito", "Atualizo agora para corrigir falhas de segurança"])
+r1_mult = 0.0
+r1_dinheiro = 0
+r1_seguranca = -1
+r2_mult = 0.0
+r2_dinheiro = 15
+r2_seguranca = 1
+metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
+
+[sub_resource type="Resource" id="Resource_35k2l"]
+script = ExtResource("12_p3fmm")
+texto = "Qual desses é um exemplo de senha forte?"
+respostas = Array[String](["123456", " C@fe#2024!"])
+r1_mult = 0.0
+r1_dinheiro = 0
+r1_seguranca = -1
+r2_mult = 0.0
+r2_dinheiro = 15
+r2_seguranca = 1
+metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
+
+[sub_resource type="Resource" id="Resource_85lsj"]
+script = ExtResource("12_p3fmm")
+texto = "O que DEVE SER feito ao receber um e-mail desconhecido com anexo?"
+respostas = Array[String](["Não abrir e reportar ao TI", "Abrir para verificar o conteúdo"])
+r1_mult = 0.0
+r1_dinheiro = 15
+r1_seguranca = 1
+r2_mult = 0.0
+r2_dinheiro = 0
+r2_seguranca = -1
+metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
+
+[sub_resource type="Resource" id="Resource_3p4dr"]
+script = ExtResource("12_p3fmm")
+texto = "Qual dessas opções é eficaz em proteger acessos não autorizados?"
+respostas = Array[String](["Autenticação de dois fatores.", "Senhas como '123456"])
+r1_mult = 0.0
+r1_dinheiro = 15
+r1_seguranca = 1
+r2_mult = 0.0
+r2_dinheiro = 0
+r2_seguranca = -1
+metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
+
+[sub_resource type="Resource" id="Resource_ex51s"]
+script = ExtResource("12_p3fmm")
+texto = "Um cliente exige que você envie dados pelas mensagens. O que será feito?"
+respostas = Array[String](["Explico que não é seguro e uso um canal criptografado", " Envio, pois é urgente"])
+r1_mult = 0.0
+r1_dinheiro = 30
+r1_seguranca = 2
+r2_mult = 0.0
+r2_dinheiro = 0
+r2_seguranca = -2
+metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
+
+[sub_resource type="Resource" id="Resource_32fci"]
+script = ExtResource("12_p3fmm")
+texto = "Seu chefe pede para desativar o antivírus para instalar um software pirata. O que será feito?"
+respostas = Array[String](["Obedeço, pois ele é meu superior", "Recuso e alerto sobre riscos legais e de malware"])
+r1_mult = 0.0
+r1_dinheiro = -15
+r1_seguranca = -2
+r2_mult = 0.0
+r2_dinheiro = 30
+r2_seguranca = 2
+metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
+
+[sub_resource type="Resource" id="Resource_801cj"]
+script = ExtResource("12_p3fmm")
+texto = "Qual medida ajuda a prevenir ransomware?"
+respostas = Array[String](["Pagar o resgate caso ocorra um ataque", "Backups frequentes e isolados da rede principal"])
+r1_mult = 0.0
+r1_dinheiro = -30
+r1_seguranca = -2
+r2_mult = 0.0
+r2_dinheiro = 30
+r2_seguranca = 2
+metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
+
+[sub_resource type="Resource" id="Resource_phiji"]
+script = ExtResource("12_p3fmm")
+texto = "Qual é a principal razão para aplicar a segmentação de rede em uma organização?"
+respostas = Array[String]([" Limitar o acesso a recursos de rede com base na função do usuário, para aumentar a segurança", "Facilitar o compartilhamento de recursos entre todos os usuários sem restrições"])
+r1_mult = 0.0
+r1_dinheiro = 30
+r1_seguranca = 2
+r2_mult = 0.0
+r2_dinheiro = 0
+r2_seguranca = -2
+metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
+
+[sub_resource type="Resource" id="Resource_womql"]
+script = ExtResource("12_p3fmm")
+texto = "Qual medida protege contra ataques de phishing?"
+respostas = Array[String](["Clicar em links de e-mails se o remetente for conhecido", "Verificar manualmente a URL antes de digitar senhas"])
+r1_mult = 0.0
+r1_dinheiro = 0
+r1_seguranca = -2
+r2_mult = 0.0
+r2_dinheiro = 30
+r2_seguranca = 2
+metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
+
+[sub_resource type="Resource" id="Resource_c0id6"]
+script = ExtResource("12_p3fmm")
+texto = "O que DEVE SER feito ao identificar um software desatualizado em um sistema crítico?"
+respostas = Array[String](["Atualizar imediatamente ou aplicar patches de segurança", "Ignorar, pois se funcionar, não há problema"])
+r1_mult = 0.0
+r1_dinheiro = 30
+r1_seguranca = 2
+r2_mult = 0.0
+r2_dinheiro = 0
+r2_seguranca = -2
+metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
+
+[sub_resource type="Resource" id="Resource_e6h0a"]
+script = ExtResource("12_p3fmm")
+texto = "Você descobre que a empresa está vendendo dados de clientes sem consentimento. O que será feito?"
+respostas = Array[String](["Denuncio anonimamente às autoridades", "Ignoro, pois não quero perder meu emprego"])
+r1_mult = 0.0
+r1_dinheiro = 30
+r1_seguranca = 2
+r2_mult = 0.0
+r2_dinheiro = -100
+r2_seguranca = -2
+metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
+
+[sub_resource type="Resource" id="Resource_cd2si"]
+script = ExtResource("12_p3fmm")
+texto = "Um hacker oferece R$ 50.000 para acessar dados internos. O que será feito?"
+respostas = Array[String](["Recuso e reporto à polícia", " Aceito e entrego os dados"])
+r1_mult = 0.0
+r1_dinheiro = 100
+r1_seguranca = 5
+r2_mult = 0.0
+r2_dinheiro = 150
+r2_seguranca = -5
+metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
+
+[sub_resource type="Resource" id="Resource_5n2s7"]
+script = ExtResource("12_p3fmm")
+texto = "Qual é a função de um certificado SSL em um site?"
+respostas = Array[String](["Deixar o site mais rápido", "Criptografar dados trafegados"])
+r1_mult = 2.0
+r1_dinheiro = -100
+r1_seguranca = -5
+r2_mult = 0.0
+r2_dinheiro = 100
+r2_seguranca = 5
+metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
+
+[sub_resource type="Resource" id="Resource_y4e6c"]
+script = ExtResource("12_p3fmm")
+texto = "O que é engenharia social?"
+respostas = Array[String](["Manipulação psicológica para obter dados", "Ataque exclusivamente técnico sem interação humana"])
+r1_mult = 2.0
+r1_dinheiro = 100
+r1_seguranca = 5
+r2_mult = 0.0
+r2_dinheiro = -100
+r2_seguranca = -5
+metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
+
+[sub_resource type="Resource" id="Resource_fpnjq"]
+script = ExtResource("12_p3fmm")
+texto = "Você está viajando e perde seu laptop com informações sensíveis de clientes. O que faz?"
+respostas = Array[String]([" Desligar o laptop remotamente e ativar o bloqueio de dados para impedir o acesso", "Esperar que ninguém tente acessar seus dados e continuar a viagem normalmente"])
+r1_mult = 0.0
+r1_dinheiro = 100
+r1_seguranca = 5
+r2_mult = 0.0
+r2_dinheiro = -100
+r2_seguranca = -50
+metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
+
+[sub_resource type="Resource" id="Resource_ty4cb"]
+script = ExtResource("12_p3fmm")
+texto = "Você encontra uma chave de criptografia deixada por engano em um e-mail. O que faz?"
+respostas = Array[String]([" Relatar imediatamente o erro ao responsável pela segurança para evitar o uso indevido", "Usar a chave para acessar informações confidenciais e descobrir algo interessante"])
+r1_mult = 0.0
+r1_dinheiro = 100
+r1_seguranca = 5
+r2_mult = 0.0
+r2_dinheiro = -100
+r2_seguranca = -5
+metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
+
+[sub_resource type="Resource" id="Resource_038u5"]
+script = ExtResource("12_p3fmm")
+texto = "Após um grande evento, você descobre que os dados pessoais de clientes foram vazados acidentalmente por um parceiro de negócios. O que você faz?"
+respostas = Array[String](["Ignorar o incidente, pois o vazamento não foi sua responsabilidade direta", " Notificar os clientes afetados, oferecer suporte e coordenar a investigação do incidente"])
+r1_mult = 0.0
+r1_dinheiro = -100
+r1_seguranca = -5
+r2_mult = 0.0
+r2_dinheiro = 100
+r2_seguranca = 5
+metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
+
+[sub_resource type="Resource" id="Resource_4frxg"]
+script = ExtResource("12_p3fmm")
+texto = "Um hacker tenta acessar sua conta bancária, mas você recebe uma notificação em seu celular sobre a tentativa. O que faz?"
+respostas = Array[String](["Bloquear imediatamente a conta, alterar senhas e notificar a instituição bancária", "Ignorar a notificação, achando que é apenas um erro do sistema"])
+r1_mult = 2.0
+r1_dinheiro = 200
+r1_seguranca = 5
+r2_mult = 0.0
+r2_dinheiro = -400
+r2_seguranca = -10
+metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
+
+=======
 [sub_resource type="Resource" id="Resource_4wu8b"]
 script = ExtResource("12_p3fmm")
 texto = "Seu servidor foi invadido! O que você faz?"
@@ -70,7 +313,6 @@ r2_mult = 0.0
 r2_dinheiro = -50
 r2_seguranca = 2
 metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
-
 [node name="Mundo" type="Node2D"]
 y_sort_enabled = true
 position = Vector2(85, 74)
@@ -155,7 +397,10 @@ position = Vector2(274, 272)
 offset = Vector2(0, 0.255)
 scale = Vector2(1.05, 1)
 transform = Transform2D(1.05, 0, 0, 1, 0, 0.255)
-perguntas = Array[ExtResource("12_p3fmm")]([SubResource("Resource_4wu8b"), SubResource("Resource_p3fmm")])
+Gabriel---Branch
+perguntas = Array[ExtResource("12_p3fmm")]([SubResource("Resource_qb65n"), SubResource("Resource_ju85c"), SubResource("Resource_rlr5u"), SubResource("Resource_35k2l"), SubResource("Resource_85lsj"), SubResource("Resource_3p4dr"), SubResource("Resource_ex51s"), SubResource("Resource_32fci"), SubResource("Resource_801cj"), SubResource("Resource_phiji"), SubResource("Resource_womql"), SubResource("Resource_c0id6"), SubResource("Resource_e6h0a"), SubResource("Resource_cd2si"), SubResource("Resource_5n2s7"), SubResource("Resource_y4e6c"), SubResource("Resource_fpnjq"), SubResource("Resource_ty4cb"), SubResource("Resource_038u5"), SubResource("Resource_4frxg")])
+
+
 
 [node name="Currency" type="Node" parent="."]
 script = ExtResource("9_feos1")
