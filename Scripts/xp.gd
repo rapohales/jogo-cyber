@@ -59,10 +59,6 @@ func level_up():
 	xp_to_next_level = next_threshold
 	var farofa = xp_thresholds.get(current_level + 1, 0)
 	EventBus._atualizar_ui_reset_progressbar(current_xp, farofa)
-	var niveis_questao: Array = [3, 5, 7, 10, 12, 14, 17, 19, 20, 21, 22, 24, 26, 27, 28, 29,30]
-	for i in niveis_questao.size():
-		if current_level == niveis_questao[i]:
-			EventBus.emitir_ui("emitir_ui", "´pmtps")
 
 
 func _on_inimigo_morreu(valor) -> void:
