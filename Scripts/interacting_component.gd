@@ -30,7 +30,6 @@ func _sort_by_nearest(area1, area2):
 		
 func _on_interacting_range_area_entered(area: Area2D) -> void:
 	current_interations.push_back(area)
-	
 	pass 
 
 

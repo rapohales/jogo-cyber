@@ -29,11 +29,9 @@ func choose_questions_rand():
 	text2.text = pergunta_selecionada.respostas[1]
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("botao1"):
-		but1.button_pressed
-		_on_button_button_down()
 	if event.is_action_pressed("botao2"):
-		but1.button_pressed
+		_on_button_button_down()
+	if event.is_action_pressed("botao1"):
 		_on_button_2_button_down()
 	
 func more_opacity():
@@ -69,15 +67,10 @@ func _on_event(event_name: String, _data: Variant):
 
 func _on_button_button_down() -> void:
 	onbotao1down.emit(pergunta_selecionada.r1_dinheiro, pergunta_selecionada.r1_seguranca, pergunta_selecionada.r1_mult)
-	$TextureButton.texture_disabled = $TextureButton.texture_normal
-	$TextureButton.texture_normal = $TextureButton.texture_pressed
 	less_opacity()
-	$TextureButton.texture_normal = $TextureButton.texture_disabled
 
 
 
 func _on_button_2_button_down() -> void:
 	onbotao2down.emit(pergunta_selecionada.r2_dinheiro, pergunta_selecionada.r2_seguranca, pergunta_selecionada.r2_mult)
-	$TextureButton2.texture_normal = $TextureButton2.texture_pressed
 	less_opacity()
-	$TextureButton2.texture_normal = $TextureButton2.texture_pressed
