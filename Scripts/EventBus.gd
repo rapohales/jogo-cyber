@@ -37,11 +37,12 @@ func pegar_din(dinheiro):
 	get_din.emit(dinheiro)
 
 func emitir_ui(event_name: String, data = null) -> void:
+	print(data)
 	event_triggered.emit(event_name, data)
 
 func abrir_loja():
 	loja_ui.emit()
-	
+
 
 func atualizar_score(score :int, seguranca) -> void:
 	atualizar_score_out.emit(score, seguranca)

@@ -76,15 +76,11 @@ func pegar_input():
 	
 	if Input.is_action_just_pressed("dodge") and dodge_charges > 0 and not is_dodging:
 		start_dodge()
-		
-	
 func start_dodge():
 	dodge_charges -= 1
 	_update_dodge_ui()
-	
 	is_dodging = true
 	can_take_damage = false
-	
 	if dodge_charges < max_dodge_charges and not dodge_recharge_timer.is_stopped():
 		dodge_recharge_timer.start()
 	
@@ -92,9 +88,7 @@ func start_dodge():
 		velocity = input_direction.normalized() * dodge_speed
 	else:
 		velocity = Vector2.DOWN * dodge_speed
-	
 	sprite.scale = Vector2(0.8, 0.8)
-	
 	await get_tree().create_timer(dodge_duration).timeout
 	is_dodging = false
 	can_take_damage = true
@@ -127,10 +121,13 @@ func estado_animacao():
 
 func _on_vul_timer_timeout() -> void:
 	can_take_damage = true
-	
-
-
 func _on_health_regen_timeout() -> void:
 	if health <= max_health:
 		print("vida")
 		ganhar_vida(health_regen)
+
+func aumentar_vida():
+	max_health += 5
+	
+func aumentar_velocidade():
+	speed += 5

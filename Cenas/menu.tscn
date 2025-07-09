@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://wsaav34en06a"]
+
+[ext_resource type="Script" uid="uid://chcox4t4rcap2" path="res://Cenas/menu.gd" id="1_fapvr"]
+[ext_resource type="Texture2D" uid="uid://b8adgk5qcmig5" path="res://Assets/menu_asset/bot_jogar.png" id="2_eheat"]
+[ext_resource type="AudioStream" uid="uid://bx76mvnpdgbqm" path="res://Sounds/8-bit-console-from-my-childhood-301286.mp3" id="2_kdsmm"]
+[ext_resource type="Texture2D" uid="uid://l17tam0w2drm" path="res://Assets/menu_asset/bot_sair.png" id="3_fapvr"]
+[ext_resource type="Texture2D" uid="uid://b86p5yccn1w7v" path="res://Assets/menu_asset/bot_opcoes.png" id="4_kdsmm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ctkf8"]
+line_spacing = 4.0
+font_size = 50
+font_color = Color(0.0666667, 0.054902, 0.12549, 1)
+shadow_color = Color(0.0980392, 0.176471, 0.380392, 0.592157)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 2.0
+offset_right = -585.0
+offset_bottom = -198.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fapvr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -23.0
+offset_right = 1499.0
+offset_bottom = 703.0
+color = Color(0.247059, 0.0745098, 0.827451, 0.305882)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Nome do jogo" type="Label" parent="."]
+layout_mode = 2
+offset_left = 907.0
+offset_top = 173.0
+offset_right = 1187.0
+offset_bottom = 299.0
+text = "Bite & Bash"
+label_settings = SubResource("LabelSettings_ctkf8")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, 0)
+stream = ExtResource("2_kdsmm")
+
+[node name="BotPlay" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 107.0
+offset_right = 320.0
+offset_bottom = 171.0
+scale = Vector2(1.895, 1.895)
+texture_normal = ExtResource("2_eheat")
+
+[node name="BotExit" type="TextureButton" parent="."]
+offset_left = 206.0
+offset_top = 495.0
+offset_right = 326.0
+offset_bottom = 559.0
+scale = Vector2(1.895, 1.895)
+texture_normal = ExtResource("3_fapvr")
+
+[node name="BotOpcoes" type="TextureButton" parent="."]
+offset_left = 206.0
+offset_top = 244.0
+offset_right = 326.0
+offset_bottom = 308.0
+scale = Vector2(1.895, 1.895)
+texture_normal = ExtResource("4_kdsmm")
+
+[connection signal="pressed" from="BotPlay" to="." method="_on_bot_play_pressed"]

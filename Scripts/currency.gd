@@ -41,7 +41,7 @@ func _on_questions_onbotao_2_down(_moedas: Variant, _seguranca: Variant, _mult) 
 	
 
 func chance_event_happen():
-	if randf_range(0, 1) <= Main.vulnerabilidade_ativa * 0.1:
+	if randf_range(0, 100) <= Main.vulnerabilidade_ativa * 0.1:
 		evento_ocorreu.emit()
 		Main.evento_ocorre()
 		var tween = create_tween()

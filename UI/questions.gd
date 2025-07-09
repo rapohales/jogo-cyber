@@ -60,7 +60,7 @@ func less_opacity():
 	
 	
 func _on_event(event_name: String, _data: Variant):
-	if event_name == "emitir_ui": 
+	if event_name == "emitir_ui" and _data == "Chest": 
 		choose_questions_rand()
 		more_opacity()
 		get_canvas()
