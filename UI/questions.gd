@@ -60,7 +60,7 @@ func less_opacity():
 	
 	
 func _on_event(event_name: String, _data: Variant):
-	if event_name == "emitir_ui" and _data == "Chest": 
+	if event_name == "emitir_ui" and _data.contains("Chest"): 
 		choose_questions_rand()
 		more_opacity()
 		get_canvas()
@@ -68,8 +68,6 @@ func _on_event(event_name: String, _data: Variant):
 func _on_button_button_down() -> void:
 	onbotao1down.emit(pergunta_selecionada.r1_dinheiro, pergunta_selecionada.r1_seguranca, pergunta_selecionada.r1_mult)
 	less_opacity()
-
-
 
 func _on_button_2_button_down() -> void:
 	onbotao2down.emit(pergunta_selecionada.r2_dinheiro, pergunta_selecionada.r2_seguranca, pergunta_selecionada.r2_mult)

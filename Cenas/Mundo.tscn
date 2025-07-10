@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://6i8a8il2mpwd"]
+[gd_scene load_steps=27 format=4 uid="uid://6i8a8il2mpwd"]
 
 [ext_resource type="Script" uid="uid://ddp4l8pqchl4u" path="res://Scripts/main.gd" id="1_8trbm"]
 [ext_resource type="TileSet" uid="uid://3scimsm6nob5" path="res://PixelNature_Sprites/Mundo.tres" id="2_25bfp"]
@@ -69,6 +69,42 @@ r1_seguranca = 0
 r2_mult = 0.0
 r2_dinheiro = -50
 r2_seguranca = 2
+metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
+
+[sub_resource type="Resource" id="Resource_qb65n"]
+script = ExtResource("12_p3fmm")
+texto = " Qual desses é um exemplo de senha forte?"
+respostas = Array[String](["123456", "C@fe#2024!"])
+r1_mult = 0.0
+r1_dinheiro = 0
+r1_seguranca = -1
+r2_mult = 1.2
+r2_dinheiro = 0
+r2_seguranca = 2
+metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
+
+[sub_resource type="Resource" id="Resource_ju85c"]
+script = ExtResource("12_p3fmm")
+texto = "Um colega pede sua senha. O que você faz?"
+respostas = Array[String](["Dou minha senha, pois confio nele", "Recuso"])
+r1_mult = 0.0
+r1_dinheiro = 0
+r1_seguranca = 0
+r2_mult = 1.5
+r2_dinheiro = 0
+r2_seguranca = 1
+metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
+
+[sub_resource type="Resource" id="Resource_rlr5u"]
+script = ExtResource("12_p3fmm")
+texto = "Qual dessas opções é eficaz em proteger acessos?"
+respostas = Array[String](["2FA", "Senhas como '12345'"])
+r1_mult = 1.5
+r1_dinheiro = 15
+r1_seguranca = 2
+r2_mult = 0.0
+r2_dinheiro = 0
+r2_seguranca = -1
 metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
 
 [node name="Mundo" type="Node2D"]
@@ -156,11 +192,11 @@ position = Vector2(274, 272)
 offset = Vector2(0, 0.255)
 scale = Vector2(1.05, 1)
 transform = Transform2D(1.05, 0, 0, 1, 0, 0.255)
-perguntas = Array[ExtResource("12_p3fmm")]([SubResource("Resource_4wu8b"), SubResource("Resource_p3fmm")])
+perguntas = Array[ExtResource("12_p3fmm")]([SubResource("Resource_4wu8b"), SubResource("Resource_p3fmm"), SubResource("Resource_qb65n"), SubResource("Resource_ju85c"), SubResource("Resource_rlr5u")])
 
 [node name="Currency" type="Node" parent="."]
 script = ExtResource("9_feos1")
-moedas = 10000.0
+moedas = 10.0
 
 [node name="Coin_timer" type="Timer" parent="."]
 autostart = true

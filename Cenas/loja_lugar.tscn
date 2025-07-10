@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bdfiasuoscpr0" path="res://Cenas/loja_lugar.gd" id="1_gxh58"]
 [ext_resource type="Texture2D" uid="uid://46sarle6cie" path="res://Assets/Light/light.png" id="1_h8tfu"]
-[ext_resource type="Texture2D" uid="uid://2prlw1k2xosg" path="res://Assets/UI Bundle/UI Bundle/loja_spritesheet.png" id="2_gxh58"]
+[ext_resource type="Texture2D" uid="uid://doep3j68hboah" path="res://Assets/UI Bundle/UI Bundle/loja_spritesheet.png" id="2_gxh58"]
 [ext_resource type="PackedScene" uid="uid://egm5b58sy827" path="res://Cenas/interactables.tscn" id="3_h8tfu"]
 [ext_resource type="PackedScene" uid="uid://c7h1dllamy0vv" path="res://Cenas/Loja.tscn" id="5_wkciq"]
 

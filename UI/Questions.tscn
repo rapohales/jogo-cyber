@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://1srfhedrakwv"]
+[gd_scene load_steps=22 format=3 uid="uid://1srfhedrakwv"]
 
 [ext_resource type="Script" uid="uid://bjfh0yu6c7yv4" path="res://UI/questions.gd" id="1_s6nhl"]
 [ext_resource type="Texture2D" uid="uid://bwts30q76ga5k" path="res://Assets/UI Bundle/UI Bundle/CyberTheme.png" id="2_fjxn8"]
@@ -31,10 +31,58 @@ r2_dinheiro = 1000
 r2_seguranca = 0
 metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
 
+[sub_resource type="Resource" id="Resource_08fsj"]
+script = ExtResource("2_xbf21")
+texto = "Qual desse é um exemplo de senha forte?"
+respostas = Array[String](["Usar duas senhas diferentes", "Confirmar acesso com senha por SMS"])
+r1_mult = 0.0
+r1_dinheiro = 0
+r1_seguranca = -1
+r2_mult = 0.0
+r2_dinheiro = 0
+r2_seguranca = 2
+metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
+
+[sub_resource type="Resource" id="Resource_b210v"]
+script = ExtResource("2_xbf21")
+texto = "Qual desses é um exemplo de senha forte?"
+respostas = Array[String](["C@fe#2024!", "123456"])
+r1_mult = 1.5
+r1_dinheiro = 0
+r1_seguranca = 2
+r2_mult = 0.0
+r2_dinheiro = -50
+r2_seguranca = -1
+metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
+
+[sub_resource type="Resource" id="Resource_ko0fh"]
+script = ExtResource("2_xbf21")
+texto = "Um colega seu pede sua senha, o que você faz?"
+respostas = Array[String](["Dou minha senha", "Recuso."])
+r1_mult = 0.0
+r1_dinheiro = -15
+r1_seguranca = 0
+r2_mult = 0.0
+r2_dinheiro = 25
+r2_seguranca = 2
+metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
+
+[sub_resource type="Resource" id="Resource_ibpsj"]
+script = ExtResource("2_xbf21")
+texto = "Qual medida previne ransomwares?"
+respostas = Array[String](["", ""])
+r1_mult = 0.0
+r1_dinheiro = 0
+r1_seguranca = 0
+r2_mult = 0.0
+r2_dinheiro = 0
+r2_seguranca = 0
+metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
+
 [sub_resource type="LabelSettings" id="LabelSettings_xbf21"]
 font = ExtResource("4_ljl62")
-font_color = Color(0.58121, 0.225699, 0.937304, 1)
-outline_size = 2
+font_color = Color(0.893519, 0.838563, 0.99562, 1)
+outline_size = 1
 shadow_size = 2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljl62"]
@@ -71,7 +119,7 @@ region = Rect2(321, 273, 14, 14)
 [node name="Questions" type="CanvasLayer"]
 layer = 2
 script = ExtResource("1_s6nhl")
-perguntas = Array[ExtResource("2_xbf21")]([SubResource("Resource_ljl62"), SubResource("Resource_gss22")])
+perguntas = Array[ExtResource("2_xbf21")]([SubResource("Resource_ljl62"), SubResource("Resource_gss22"), SubResource("Resource_08fsj"), SubResource("Resource_b210v"), SubResource("Resource_ko0fh"), SubResource("Resource_ibpsj")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
