@@ -21,22 +21,22 @@ func pegar_dinheiro():
 
 func _on_coin_timer_timeout() -> void:
 	moedas += 1 * mult;
-	UI_node.update_score_display(moedas, seguranca)
+	UI_node.update_score_display(moedas, seguranca, mult)
 
-func update_score_ui(score, _seguranca):
-	EventBus.atualizar_score(score, _seguranca)
+func update_score_ui(score, _seguranca, mult):
+	EventBus.atualizar_score(score, _seguranca, mult)
 
 func _on_questions_onbotao_1_down(_moedas: Variant, _seguranca: Variant, _mult) -> void:
 	moedas += _moedas
 	seguranca += _seguranca
 	mult += _mult 
-	update_score_ui(_moedas, _seguranca)
+	update_score_ui(_moedas, _seguranca, mult)
 	Main.att_vulnerabilidade(seguranca)
 func _on_questions_onbotao_2_down(_moedas: Variant, _seguranca: Variant, _mult) -> void:
 	moedas += _moedas
 	seguranca += _seguranca
 	mult += _mult 
-	update_score_ui(_moedas, _seguranca)
+	update_score_ui(_moedas, _seguranca, mult)
 	Main.att_vulnerabilidade(seguranca)
 	
 

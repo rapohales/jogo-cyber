@@ -10,12 +10,12 @@
 [ext_resource type="Script" uid="uid://bvlpn754lgol2" path="res://Scripts/xp.gd" id="6_p3fmm"]
 [ext_resource type="PackedScene" uid="uid://b0x5ijl5ckopo" path="res://PixelNature_Sprites/chest.tscn" id="7_p3fmm"]
 [ext_resource type="PackedScene" uid="uid://1srfhedrakwv" path="res://UI/Questions.tscn" id="8_25bfp"]
-[ext_resource type="PackedScene" uid="uid://h4ycdlf3l2gl" path="res://Scripts/Espada.tscn" id="8_a0d8t"]
+[ext_resource type="PackedScene" uid="uid://h4ycdlf3l2gl" path="res://Cenas/Espada.tscn" id="8_a0d8t"]
 [ext_resource type="Script" uid="uid://dbfgvt6w3f30r" path="res://Scripts/currency.gd" id="9_feos1"]
 [ext_resource type="Texture2D" uid="uid://46sarle6cie" path="res://Assets/Light/light.png" id="9_qb65n"]
 [ext_resource type="Script" uid="uid://ce66n2vvd0mp3" path="res://Resources/pergunta.gd" id="12_p3fmm"]
 [ext_resource type="AudioStream" uid="uid://cvohs01yr5k8u" path="res://Sounds/MainMusic.mp3" id="14_4wu8b"]
-[ext_resource type="Script" uid="uid://q3nirk7b8axa" path="res://Cenas/event_handler.gd" id="15_xisxj"]
+[ext_resource type="Script" uid="uid://q3nirk7b8axa" path="res://Scripts/event_handler.gd" id="15_xisxj"]
 [ext_resource type="PackedScene" uid="uid://d1usl1ipxy0hd" path="res://Cenas/Cenas_eventos/vazamento_dados.tscn" id="16_0tppn"]
 [ext_resource type="PackedScene" uid="uid://cgk20cqakgiir" path="res://Cenas/HealthItem.tscn" id="17_dva7o"]
 [ext_resource type="PackedScene" uid="uid://b5e0w0kwp1rvn" path="res://Cenas/loja_lugar.tscn" id="20_ju85c"]
@@ -54,9 +54,11 @@ respostas = Array[String](["Contrato uma equipe especializada", "Tento resolver 
 r1_mult = 0.0
 r1_dinheiro = -50
 r1_seguranca = 2
+certo1 = true
 r2_mult = 1.5
 r2_dinheiro = 0
 r2_seguranca = 0
+certo2 = false
 metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
 
 [sub_resource type="Resource" id="Resource_p3fmm"]
@@ -66,9 +68,11 @@ respostas = Array[String](["Uso o chatGPT pra fazer o código inteiro", "Contrat
 r1_mult = 1.3
 r1_dinheiro = 0
 r1_seguranca = 0
+certo1 = false
 r2_mult = 0.0
 r2_dinheiro = -50
 r2_seguranca = 2
+certo2 = true
 metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
 
 [sub_resource type="Resource" id="Resource_qb65n"]
@@ -78,9 +82,11 @@ respostas = Array[String](["123456", "C@fe#2024!"])
 r1_mult = 0.0
 r1_dinheiro = 0
 r1_seguranca = -1
+certo1 = false
 r2_mult = 1.2
 r2_dinheiro = 0
 r2_seguranca = 2
+certo2 = true
 metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
 
 [sub_resource type="Resource" id="Resource_ju85c"]
@@ -90,9 +96,11 @@ respostas = Array[String](["Dou minha senha, pois confio nele", "Recuso"])
 r1_mult = 0.0
 r1_dinheiro = 0
 r1_seguranca = 0
+certo1 = false
 r2_mult = 1.5
 r2_dinheiro = 0
 r2_seguranca = 1
+certo2 = true
 metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
 
 [sub_resource type="Resource" id="Resource_rlr5u"]
@@ -102,9 +110,11 @@ respostas = Array[String](["2FA", "Senhas como '12345'"])
 r1_mult = 1.5
 r1_dinheiro = 15
 r1_seguranca = 2
+certo1 = true
 r2_mult = 0.0
 r2_dinheiro = 0
 r2_seguranca = -1
+certo2 = false
 metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
 
 [node name="Mundo" type="Node2D"]
@@ -135,35 +145,36 @@ cena_espada = ExtResource("8_a0d8t")
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -11)
 zoom = Vector2(2, 2)
+limit_smoothed = true
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
 [node name="Marker2D" parent="Player/Camera2D" instance=ExtResource("4_p3fmm")]
-position = Vector2(409, -193)
+position = Vector2(439, -189)
 
 [node name="Marker2D2" parent="Player/Camera2D" instance=ExtResource("4_p3fmm")]
-position = Vector2(164, -189)
+position = Vector2(287, -258)
 
 [node name="Marker2D3" parent="Player/Camera2D" instance=ExtResource("4_p3fmm")]
-position = Vector2(-154, -205)
+position = Vector2(-149, -240)
 
 [node name="Marker2D4" parent="Player/Camera2D" instance=ExtResource("4_p3fmm")]
 position = Vector2(-462, -71)
 
 [node name="Marker2D5" parent="Player/Camera2D" instance=ExtResource("4_p3fmm")]
-position = Vector2(-394, 206)
+position = Vector2(-420, 196)
 
 [node name="Marker2D6" parent="Player/Camera2D" instance=ExtResource("4_p3fmm")]
 position = Vector2(-504, 39)
 
 [node name="Marker2D7" parent="Player/Camera2D" instance=ExtResource("4_p3fmm")]
-position = Vector2(-159, 215)
+position = Vector2(-177, 238)
 
 [node name="Marker2D8" parent="Player/Camera2D" instance=ExtResource("4_p3fmm")]
-position = Vector2(118, 223)
+position = Vector2(91, 247)
 
 [node name="Marker2D9" parent="Player/Camera2D" instance=ExtResource("4_p3fmm")]
-position = Vector2(333, 194)
+position = Vector2(410, 255)
 
 [node name="Marker2D10" parent="Player/Camera2D" instance=ExtResource("4_p3fmm")]
 position = Vector2(420, 67)
@@ -181,6 +192,14 @@ range_z_min = -4
 texture = ExtResource("9_qb65n")
 texture_scale = 2.05
 metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
+position = Vector2(-400, -267)
+stream = ExtResource("14_4wu8b")
+volume_db = -3.643
+autoplay = true
+max_distance = 4096.0
+parameters/looping = false
 
 [node name="Ui" parent="." instance=ExtResource("5_oyce6")]
 
@@ -200,28 +219,26 @@ moedas = 10.0
 
 [node name="Coin_timer" type="Timer" parent="."]
 autostart = true
+ignore_time_scale = true
 
 [node name="Chance_event" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("14_4wu8b")
-volume_db = -3.643
-autoplay = true
-parameters/looping = false
+ignore_time_scale = true
 
 [node name="EventHandler" type="Node" parent="."]
 script = ExtResource("15_xisxj")
 cada_evento = Array[PackedScene]([ExtResource("16_0tppn")])
 
 [node name="HealthItem" parent="." instance=ExtResource("17_dva7o")]
+position = Vector2(154, -9)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2(308, 4)
 color = Color(0.714033, 0.453314, 0.295235, 1)
 
 [node name="Loja_lugar" parent="." instance=ExtResource("20_ju85c")]
-position = Vector2(488, 29)
+position = Vector2(431, -23)
 
 [node name="Chest2" parent="." instance=ExtResource("7_p3fmm")]
 y_sort_enabled = true

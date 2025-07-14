@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://rlohni74tnn5"]
+[gd_scene load_steps=8 format=3 uid="uid://rlohni74tnn5"]
 
-[ext_resource type="Script" uid="uid://bec3ujqf3gbw0" path="res://UI/ui.gd" id="1_q0uhn"]
+[ext_resource type="Script" uid="uid://bec3ujqf3gbw0" path="res://Scripts/ui.gd" id="1_q0uhn"]
 [ext_resource type="FontFile" uid="uid://bku1m2d5f0ncj" path="res://Assets/Font/Pixellari.ttf" id="2_e707p"]
 [ext_resource type="Texture2D" uid="uid://jl4kslybwtpx" path="res://Assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Button01a_1.png" id="2_f1fl4"]
 [ext_resource type="Texture2D" uid="uid://btc2d7pvaiu0u" path="res://Assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Bar13a.png" id="4_jqf55"]
@@ -11,6 +11,12 @@ font = ExtResource("2_e707p")
 font_size = 36
 font_color = Color(0.998777, 0.87865, 0.730635, 1)
 outline_size = 9
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_f1fl4"]
+font = ExtResource("2_e707p")
+font_color = Color(1, 0.878431, 0.729412, 1)
+outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
 [node name="Ui" type="CanvasLayer"]
@@ -26,17 +32,36 @@ visibility_layer = 2
 anchors_preset = -1
 anchor_left = -0.002
 anchor_top = 0.243
-anchor_right = 0.0113333
-anchor_bottom = 0.281143
+anchor_right = 0.0446667
+anchor_bottom = 0.281375
 offset_left = 79.0
-offset_top = 25.9
+offset_top = 8.60001
 offset_right = 185.0
-offset_bottom = 35.1999
+offset_bottom = 17.8999
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 text = "Coins: "
 label_settings = SubResource("LabelSettings_pa3ot")
+metadata/_edit_use_anchors_ = true
+
+[node name="ScoreLabel" type="Label" parent="ScoreLabel"]
+visibility_layer = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.767045
+anchor_top = 0.00999997
+anchor_right = 0.767045
+anchor_bottom = 0.177503
+offset_left = 79.0
+offset_top = 9.60001
+offset_right = 185.0
+offset_bottom = 38.8999
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+text = "Mult:"
+label_settings = SubResource("LabelSettings_f1fl4")
 metadata/_edit_use_anchors_ = true
 
 [node name="ScoreLabel2" type="Label" parent="."]
@@ -47,9 +72,9 @@ anchor_top = 0.243
 anchor_right = 0.0173333
 anchor_bottom = 0.281143
 offset_left = 82.0
-offset_top = 74.9
+offset_top = 45.6
 offset_right = 303.0
-offset_bottom = 98.2
+offset_bottom = 68.9
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
@@ -65,9 +90,9 @@ anchor_top = 0.243
 anchor_right = -0.000666667
 anchor_bottom = 0.281143
 offset_left = 82.0
-offset_top = 124.9
+offset_top = 87.6
 offset_right = 303.0
-offset_bottom = 148.2
+offset_bottom = 110.9
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0

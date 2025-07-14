@@ -42,9 +42,11 @@ func emitir_ui(event_name: String, data = null) -> void:
 func abrir_loja():
 	loja_ui.emit()
 
+func emit_sigmal(cur_charges, max_charges):
+	atualizar_esquivas.emit(cur_charges, max_charges)
 
-func atualizar_score(score :int, seguranca) -> void:
-	atualizar_score_out.emit(score, seguranca)
+func atualizar_score(score :int, seguranca, mult) -> void:
+	atualizar_score_out.emit(score, seguranca, mult)
 	
 
 

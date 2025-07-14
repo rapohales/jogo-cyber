@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b6j3q01a3cb6b"]
 
 [ext_resource type="Texture2D" uid="uid://b7xmgga3piybu" path="res://Assets/Armas/slashsheet.png" id="1_4p26a"]
-[ext_resource type="Script" uid="uid://bju3rd6d1pw3" path="res://Cenas/slash_projectile.gd" id="1_u6lkq"]
+[ext_resource type="Script" uid="uid://bju3rd6d1pw3" path="res://Scripts/slash_projectile.gd" id="1_u6lkq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u6lkq"]
 atlas = ExtResource("1_4p26a")
@@ -64,3 +64,4 @@ texture = SubResource("NoiseTexture2D_u6lkq")
 texture_scale = 0.4
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_visibility_notifier_2d_screen_exited"]

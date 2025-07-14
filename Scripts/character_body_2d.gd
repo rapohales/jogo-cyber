@@ -35,12 +35,10 @@ func _ready() -> void:
 	dodge_recharge_timer.wait_time = dodge_cooldown
 	dodge_recharge_timer.timeout.connect(_replenish_dodge)
 	update_animation(start_direction)
-	_update_dodge_ui()  # Atualiza UI inicial
+	_update_dodge_ui() 
 
 func _update_dodge_ui():
-	# Emite o sinal para atualizar a UI
-	if Engine.has_singleton("EventBus"):
-		EventBus.emit_signal("atualizar_esquivas", dodge_charges, max_dodge_charges)
+	EventBus.emit_sigmal(dodge_charges, max_dodge_charges)
 	
 func _replenish_dodge():
 	if dodge_charges < max_dodge_charges:
@@ -128,6 +126,10 @@ func _on_health_regen_timeout() -> void:
 
 func aumentar_vida():
 	max_health += 5
-	
+
 func aumentar_velocidade():
 	speed += 5
+
+func _on_dodge_timer_timeout() -> void:
+	_replenish_dodge()
+		

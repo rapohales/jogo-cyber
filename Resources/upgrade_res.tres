@@ -22,19 +22,18 @@ description = "Aumenta a velocidade do player"
 arma = false
 preco = 40
 metodo = "aumentar_velocidade"
-alvo_nome = ""
+alvo_nome = "Player"
 metadata/_custom_type_script = "uid://b780e7oteto45"
 
 [sub_resource type="Resource" id="Resource_2pam7"]
-resource_name = "Espada"
 script = ExtResource("2_2pam7")
 id = 2
 nome = "Aumentar projéteis da espada"
 description = "Aumenta os projéteis da espada em +1"
-arma = false
+arma = true
 preco = 60
 metodo = "aumentar_tiros"
-alvo_nome = ""
+alvo_nome = "Espada"
 metadata/_custom_type_script = "uid://b780e7oteto45"
 
 [sub_resource type="Resource" id="Resource_h3giq"]
@@ -42,10 +41,10 @@ script = ExtResource("2_2pam7")
 id = 3
 nome = "Aumentar dano da Espada"
 description = "Aumenta o dano da sua espada em 5"
-arma = false
+arma = true
 preco = 65
 metodo = "aumentar_dano"
-alvo_nome = ""
+alvo_nome = "Espada"
 metadata/_custom_type_script = "uid://b780e7oteto45"
 
 [resource]

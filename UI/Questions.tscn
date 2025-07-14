@@ -1,11 +1,15 @@
-[gd_scene load_steps=22 format=3 uid="uid://1srfhedrakwv"]
+[gd_scene load_steps=37 format=3 uid="uid://1srfhedrakwv"]
 
-[ext_resource type="Script" uid="uid://bjfh0yu6c7yv4" path="res://UI/questions.gd" id="1_s6nhl"]
+[ext_resource type="Script" uid="uid://bjfh0yu6c7yv4" path="res://Scripts/questions.gd" id="1_s6nhl"]
 [ext_resource type="Texture2D" uid="uid://bwts30q76ga5k" path="res://Assets/UI Bundle/UI Bundle/CyberTheme.png" id="2_fjxn8"]
 [ext_resource type="Script" uid="uid://ce66n2vvd0mp3" path="res://Resources/pergunta.gd" id="2_xbf21"]
 [ext_resource type="Texture2D" uid="uid://q83s26yuajx1" path="res://Assets/UI Bundle/UI Bundle/CyberTheme2.png" id="4_gss22"]
 [ext_resource type="FontFile" uid="uid://bku1m2d5f0ncj" path="res://Assets/Font/Pixellari.ttf" id="4_ljl62"]
 [ext_resource type="Texture2D" uid="uid://dglv7gr00qa7y" path="res://Assets/UI Bundle/UI Bundle/BlackandWhiteUI.png" id="6_08fsj"]
+[ext_resource type="Texture2D" uid="uid://w6nrkrs71tun" path="res://Assets/UI Bundle/UI Bundle/botao_acertou.png" id="6_b210v"]
+[ext_resource type="Texture2D" uid="uid://c23idv45b1pbp" path="res://Assets/UI Bundle/UI Bundle/botao_errou.png" id="7_ko0fh"]
+[ext_resource type="AudioStream" uid="uid://de2yv8ca11qnm" path="res://Sons de Hits/hurt.wav" id="9_himf3"]
+[ext_resource type="AudioStream" uid="uid://bbrmnxjlxr1bo" path="res://Sons de Hits/good.wav" id="10_lfkui"]
 
 [sub_resource type="Resource" id="Resource_ljl62"]
 script = ExtResource("2_xbf21")
@@ -14,9 +18,11 @@ respostas = Array[String]([])
 r1_mult = 0.0
 r1_dinheiro = 50
 r1_seguranca = 0
+certo1 = false
 r2_mult = 0.0
 r2_dinheiro = -50
 r2_seguranca = 0
+certo2 = false
 metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
 
 [sub_resource type="Resource" id="Resource_gss22"]
@@ -26,9 +32,11 @@ respostas = Array[String]([])
 r1_mult = 0.0
 r1_dinheiro = 0
 r1_seguranca = 200
+certo1 = false
 r2_mult = 0.0
 r2_dinheiro = 1000
 r2_seguranca = 0
+certo2 = false
 metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
 
 [sub_resource type="Resource" id="Resource_08fsj"]
@@ -38,9 +46,11 @@ respostas = Array[String](["Usar duas senhas diferentes", "Confirmar acesso com 
 r1_mult = 0.0
 r1_dinheiro = 0
 r1_seguranca = -1
+certo1 = false
 r2_mult = 0.0
 r2_dinheiro = 0
 r2_seguranca = 2
+certo2 = false
 metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
 
 [sub_resource type="Resource" id="Resource_b210v"]
@@ -50,9 +60,11 @@ respostas = Array[String](["C@fe#2024!", "123456"])
 r1_mult = 1.5
 r1_dinheiro = 0
 r1_seguranca = 2
+certo1 = false
 r2_mult = 0.0
 r2_dinheiro = -50
 r2_seguranca = -1
+certo2 = false
 metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
 
 [sub_resource type="Resource" id="Resource_ko0fh"]
@@ -62,9 +74,11 @@ respostas = Array[String](["Dou minha senha", "Recuso."])
 r1_mult = 0.0
 r1_dinheiro = -15
 r1_seguranca = 0
+certo1 = false
 r2_mult = 0.0
 r2_dinheiro = 25
 r2_seguranca = 2
+certo2 = false
 metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
 
 [sub_resource type="Resource" id="Resource_ibpsj"]
@@ -74,9 +88,11 @@ respostas = Array[String](["", ""])
 r1_mult = 0.0
 r1_dinheiro = 0
 r1_seguranca = 0
+certo1 = false
 r2_mult = 0.0
 r2_dinheiro = 0
 r2_seguranca = 0
+certo2 = false
 metadata/_custom_type_script = "uid://ce66n2vvd0mp3"
 
 [sub_resource type="LabelSettings" id="LabelSettings_xbf21"]
@@ -93,17 +109,95 @@ region = Rect2(290, 35, 90, 27)
 atlas = ExtResource("4_gss22")
 region = Rect2(385, 33, 94, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfkui"]
+atlas = ExtResource("6_b210v")
+region = Rect2(120, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pn68"]
+atlas = ExtResource("6_b210v")
+region = Rect2(240, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ovrw"]
+atlas = ExtResource("6_b210v")
+region = Rect2(360, 0, 120, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p21ix"]
+atlas = ExtResource("6_b210v")
+region = Rect2(480, 0, 120, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cfpnc"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfkui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pn68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ovrw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p21ix")
+}],
+"loop": false,
+"name": &"right",
+"speed": 5.0
+}]
+
 [sub_resource type="LabelSettings" id="LabelSettings_ljl62"]
 font = ExtResource("4_ljl62")
 font_size = 15
 
+[sub_resource type="Curve" id="Curve_b210v"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.670455, 92.8685), 0.0, 0.0, 0, 0, Vector2(0.988636, 146.434), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_ko0fh"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.397727, 0.577655), 0.0, 0.0, 0, 0, Vector2(0.837121, 0.0522979), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jpy0"]
+atlas = ExtResource("7_ko0fh")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6aore"]
+atlas = ExtResource("7_ko0fh")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jranw"]
+atlas = ExtResource("7_ko0fh")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yht05"]
+atlas = ExtResource("7_ko0fh")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ej5gh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jpy0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6aore")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jranw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yht05")
+}],
+"loop": false,
+"name": &"wrong",
+"speed": 5.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_gss22"]
 atlas = ExtResource("4_gss22")
 region = Rect2(385, 34, 94, 31)
-
-[sub_resource type="LabelSettings" id="LabelSettings_gss22"]
-font = ExtResource("4_ljl62")
-font_size = 14
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b210v"]
 atlas = ExtResource("6_08fsj")
@@ -160,7 +254,16 @@ texture_pressed = SubResource("AtlasTexture_08fsj")
 texture_hover = SubResource("AtlasTexture_08fsj")
 stretch_mode = 0
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Button"]
+visible = false
+z_index = 2
+position = Vector2(119, 72)
+scale = Vector2(2.53958, 2.34687)
+sprite_frames = SubResource("SpriteFrames_cfpnc")
+animation = &"right"
+
 [node name="Label" type="Label" parent="Button"]
+z_index = 4
 layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
@@ -172,6 +275,37 @@ label_settings = SubResource("LabelSettings_ljl62")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Button"]
+z_index = 3
+position = Vector2(111.375, 13.8125)
+emitting = false
+amount = 25
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+spread = 180.0
+gravity = Vector2(0, 800)
+initial_velocity_min = 150.65
+initial_velocity_max = 338.45
+linear_accel_min = 4.2
+linear_accel_max = 4.2
+radial_accel_curve = SubResource("Curve_b210v")
+angle_min = 191.3
+angle_max = 191.3
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_ko0fh")
+color = Color(1, 0, 0, 1)
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Button"]
+visible = false
+z_index = 2
+position = Vector2(155.5, 77.5)
+scale = Vector2(2.53906, 2.14844)
+sprite_frames = SubResource("SpriteFrames_ej5gh")
+animation = &"wrong"
+frame = 3
+frame_progress = 1.0
 
 [node name="Button2" type="TextureButton" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -186,16 +320,57 @@ texture_hover = SubResource("AtlasTexture_gss22")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="Button2"]
+z_index = 4
 layout_mode = 0
-offset_left = -3.0
-offset_top = -3.0
-offset_right = 227.0
-offset_bottom = 65.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 184.0
+offset_bottom = 68.0
+scale = Vector2(1.28, 1)
 text = "Texto teste"
-label_settings = SubResource("LabelSettings_gss22")
+label_settings = SubResource("LabelSettings_ljl62")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Button2"]
+visible = false
+z_index = 2
+position = Vector2(119, 72)
+scale = Vector2(2.53958, 2.34687)
+sprite_frames = SubResource("SpriteFrames_cfpnc")
+animation = &"right"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Button2"]
+z_index = 3
+position = Vector2(111.375, 13.8125)
+emitting = false
+amount = 25
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+spread = 180.0
+gravity = Vector2(0, 800)
+initial_velocity_min = 150.65
+initial_velocity_max = 338.45
+linear_accel_min = 4.2
+linear_accel_max = 4.2
+radial_accel_curve = SubResource("Curve_b210v")
+angle_min = 191.3
+angle_max = 191.3
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_ko0fh")
+color = Color(1, 0, 0, 1)
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Button2"]
+visible = false
+z_index = 2
+position = Vector2(155.5, 77.5)
+scale = Vector2(2.53906, 2.14844)
+sprite_frames = SubResource("SpriteFrames_ej5gh")
+animation = &"wrong"
+frame = 3
+frame_progress = 1.0
 
 [node name="TextureButton" type="TextureButton" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -215,6 +390,14 @@ offset_right = 750.0
 offset_bottom = 597.0
 scale = Vector2(2, 2)
 texture_normal = SubResource("AtlasTexture_ko0fh")
+
+[node name="SomErro" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_himf3")
+volume_db = -5.584
+
+[node name="SomAcerto" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_lfkui")
+volume_db = -6.98
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="Button2" to="." method="_on_button_2_button_down"]

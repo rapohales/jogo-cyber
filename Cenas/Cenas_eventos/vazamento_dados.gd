@@ -5,7 +5,6 @@ var is_happening = false
 
 func _ready() -> void:	
 	if player != null && is_happening == false:
-		
 		is_happening = true
 		var cena_dois = cena_evento.instantiate()
 		add_child(cena_dois)
@@ -27,3 +26,4 @@ func _on_timer_timeout() -> void:
 	
 func _on_cooldown_timeout() -> void:
 	is_happening = false
+	queue_free()

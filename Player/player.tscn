@@ -954,7 +954,7 @@ speed_scale = 2.944
 tree_root = SubResource("AnimationNodeStateMachine_8mwp6")
 anim_player = NodePath("../AnimationPlayer")
 parameters/idle/blend_position = Vector2(0, 0)
-parameters/walk/blend_position = Vector2(0, 0)
+parameters/walk/blend_position = Vector2(0, 1.1)
 
 [node name="InteractingComponent" parent="." instance=ExtResource("3_btcbx")]
 position = Vector2(0, 5)
@@ -969,5 +969,10 @@ position = Vector2(1, 1)
 [node name="HealthRegen" type="Timer" parent="."]
 autostart = true
 
+[node name="DodgeTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
 [connection signal="timeout" from="VulTimer" to="." method="_on_vul_timer_timeout"]
 [connection signal="timeout" from="HealthRegen" to="." method="_on_health_regen_timeout"]
+[connection signal="timeout" from="DodgeTimer" to="." method="_on_dodge_timer_timeout"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://wsaav34en06a"]
 
-[ext_resource type="Script" uid="uid://chcox4t4rcap2" path="res://Cenas/menu.gd" id="1_fapvr"]
+[ext_resource type="Script" uid="uid://chcox4t4rcap2" path="res://Scripts/menu.gd" id="1_fapvr"]
 [ext_resource type="Texture2D" uid="uid://b8adgk5qcmig5" path="res://Assets/menu_asset/bot_jogar.png" id="2_eheat"]
 [ext_resource type="AudioStream" uid="uid://bx76mvnpdgbqm" path="res://Sounds/8-bit-console-from-my-childhood-301286.mp3" id="2_kdsmm"]
 [ext_resource type="Texture2D" uid="uid://l17tam0w2drm" path="res://Assets/menu_asset/bot_sair.png" id="3_fapvr"]
@@ -29,7 +29,7 @@ script = ExtResource("1_fapvr")
 layout_mode = 0
 offset_left = -23.0
 offset_right = 1499.0
-offset_bottom = 703.0
+offset_bottom = 831.0
 color = Color(0.247059, 0.0745098, 0.827451, 0.305882)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
@@ -60,17 +60,19 @@ scale = Vector2(1.895, 1.895)
 texture_normal = ExtResource("2_eheat")
 
 [node name="BotExit" type="TextureButton" parent="."]
-offset_left = 206.0
-offset_top = 495.0
-offset_right = 326.0
-offset_bottom = 559.0
+layout_mode = 0
+offset_left = 200.0
+offset_top = 494.0
+offset_right = 320.0
+offset_bottom = 558.0
 scale = Vector2(1.895, 1.895)
 texture_normal = ExtResource("3_fapvr")
 
 [node name="BotOpcoes" type="TextureButton" parent="."]
-offset_left = 206.0
+layout_mode = 0
+offset_left = 200.0
 offset_top = 244.0
-offset_right = 326.0
+offset_right = 320.0
 offset_bottom = 308.0
 scale = Vector2(1.895, 1.895)
 texture_normal = ExtResource("4_kdsmm")

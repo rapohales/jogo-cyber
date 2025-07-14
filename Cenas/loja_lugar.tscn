@@ -1,6 +1,6 @@
 [gd_scene load_steps=43 format=3 uid="uid://b5e0w0kwp1rvn"]
 
-[ext_resource type="Script" uid="uid://bdfiasuoscpr0" path="res://Cenas/loja_lugar.gd" id="1_gxh58"]
+[ext_resource type="Script" uid="uid://bdfiasuoscpr0" path="res://Scripts/loja_lugar.gd" id="1_gxh58"]
 [ext_resource type="Texture2D" uid="uid://46sarle6cie" path="res://Assets/Light/light.png" id="1_h8tfu"]
 [ext_resource type="Texture2D" uid="uid://doep3j68hboah" path="res://Assets/UI Bundle/UI Bundle/loja_spritesheet.png" id="2_gxh58"]
 [ext_resource type="PackedScene" uid="uid://egm5b58sy827" path="res://Cenas/interactables.tscn" id="3_h8tfu"]
@@ -285,6 +285,7 @@ range_item_cull_mask = 3
 shadow_enabled = true
 texture = ExtResource("1_h8tfu")
 texture_scale = 0.66
+metadata/_edit_lock_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
