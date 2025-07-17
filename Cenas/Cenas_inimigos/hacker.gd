@@ -2,14 +2,14 @@ extends CharacterBody2D
 
 @onready var area2d = $Hurtbox
 var min_speed = 30
-var max_speed = 75
+var max_speed = 50
 @export var speed: int = randi() % ((max_speed) - (min_speed)) + (min_speed)
 @export var player: Node2D  
-@export var max_health: int = 150
-@export var xp_amount = 25
+@export var max_health: int = 100
 @export var health: int = 100
 @export var dano: int = 10
 @export var dano_dado: float = 1
+@export var xp_amount = 20
 var pode_causar_dano = true
 var intervalo_de_dano = 0.5
 @onready var efeito = preload("res://Cenas/efeito.tscn")
@@ -19,13 +19,12 @@ signal morreu;
 var valor = 10
 @onready var sprite = $AnimatedSprite2D
 var current_frame := 0
-var animation_speed = 0.2  # Velocidade da animação
+var animation_speed = 0.2  
 var timer = 0.0
 
 func _ready():
 	if player == null:
 		player = get_tree().get_first_node_in_group("player")
-	print(speed)
 
 func _physics_process(delta):
 	if player:
@@ -38,7 +37,6 @@ func animate_run(delta: float, direction: Vector2):
 	timer += delta
 	if velocity.length() > 0:
 		sprite.flip_h = direction.x < 0
-		
 		if timer >= animation_speed:
 			timer = 0.0
 			current_frame = (current_frame + 1) % 4
@@ -66,8 +64,7 @@ func morrer():
 func _on_questions_temp_dano_inimigo(_dano: Variant) -> void:
 	health -= _dano
 	tomarDano(_dano)
-	$VidaDisplay.update_healthbar(health)
-
+	
 func _on_body_entered(body):
 	if body.is_in_group("jogador"):
 		jogador = body
@@ -85,7 +82,6 @@ func causar_dano():
 			jogador.tomar_dano(dano_dado)
 			pode_causar_dano = false
 			cd.start()
-
 
 func _on_cooldown_timeout() -> void:
 	pode_causar_dano = true

@@ -8,7 +8,6 @@ var bar_yellow = preload("res://Assets/Vida_bar/healthbar2.png")
 
 func _ready():
 	if get_parent() and get_parent().get("max_health"):
-		print("lala")
 		healthbar.max_value = get_parent().max_health
 
 func update_healthbar(value):

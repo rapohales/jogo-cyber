@@ -10,6 +10,7 @@ func att_vulnerabilidade(seguranca):
 	seguranca_att = seguranca 
 	var vulnerabilidade_atual = vulnerabilidade_ativa - seguranca_att
 	
+
 func vul_por_nivel(nivel):
 	vulnerabilidade_ativa = ((nivel / 0.7) + vulnerabilidade_ativa - (vulnerabilidade_ativa * 0.2))
 pass

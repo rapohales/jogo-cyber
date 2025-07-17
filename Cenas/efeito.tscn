@@ -13,7 +13,6 @@ script = ExtResource("1_fw8m5")
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
-text = "Burro: burro"
 label_settings = SubResource("LabelSettings_2pyfd")
 metadata/_edit_use_anchors_ = true
 
@@ -21,7 +20,6 @@ metadata/_edit_use_anchors_ = true
 offset_top = 14.0
 offset_right = 92.0
 offset_bottom = 37.0
-text = "Burro: burro"
 label_settings = SubResource("LabelSettings_2pyfd")
 metadata/_edit_use_anchors_ = true
 
@@ -29,6 +27,5 @@ metadata/_edit_use_anchors_ = true
 offset_top = 29.0
 offset_right = 92.0
 offset_bottom = 52.0
-text = "Burro: burro"
 label_settings = SubResource("LabelSettings_2pyfd")
 metadata/_edit_use_anchors_ = true

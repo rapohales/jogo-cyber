@@ -131,5 +131,6 @@ func aumentar_velocidade():
 	speed += 5
 
 func _on_dodge_timer_timeout() -> void:
-	_replenish_dodge()
+	if dodge_charges >= max_dodge_charges:
+		_replenish_dodge()
 		

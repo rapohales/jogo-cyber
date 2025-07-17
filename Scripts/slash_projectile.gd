@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var speed = 100
-
+@export var lifetime: float = 1.5
 
 var direction = Vector2.RIGHT  
 func _physics_process(delta):
@@ -14,8 +14,8 @@ func _on_body_entered(body) -> void:
 	var dano = espada.damage
 	if body.is_in_group("enemies"):
 		body.tomarDano(dano)
+		print(dano)
 
 
 func _on_visibility_notifier_2d_screen_exited() -> void:
-	print("SAIUUUUUUUUUU")
 	queue_free()

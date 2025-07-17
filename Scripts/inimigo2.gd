@@ -4,6 +4,7 @@ extends CharacterBody2D
 var min_speed = 70
 var max_speed = 100
 @export var speed: int = randi() % ((max_speed) - (min_speed)) + (min_speed)
+@onready var efeito = preload("res://Cenas/efeito.tscn")
 @export var player: Node2D  
 @export var max_health: int = 80
 @export var health: int = 100
@@ -47,11 +48,13 @@ func animate_run(delta: float, direction: Vector2):
 
 func tomarDano(_dano):
 	health -= _dano
-	$VidaDisplay.update_healthbar(health)
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color(2, 0.5, 0.5), 0.1)
-	# Volta para a cor normal
 	tween.tween_property(self, "modulate", Color(1, 1, 1), 0.3)
+	var efeito_dano = efeito.instantiate()
+	efeito_dano.text1 = "%d" % _dano
+	efeito_dano.position = $AnimatedSprite2D.position
+	add_child(efeito_dano)
 	if health <= 0:
 		morrer()
 func morrer():

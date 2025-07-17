@@ -1,16 +1,106 @@
-[gd_scene load_steps=7 format=3 uid="uid://wsaav34en06a"]
+[gd_scene load_steps=14 format=3 uid="uid://wsaav34en06a"]
 
 [ext_resource type="Script" uid="uid://chcox4t4rcap2" path="res://Scripts/menu.gd" id="1_fapvr"]
 [ext_resource type="Texture2D" uid="uid://b8adgk5qcmig5" path="res://Assets/menu_asset/bot_jogar.png" id="2_eheat"]
 [ext_resource type="AudioStream" uid="uid://bx76mvnpdgbqm" path="res://Sounds/8-bit-console-from-my-childhood-301286.mp3" id="2_kdsmm"]
 [ext_resource type="Texture2D" uid="uid://l17tam0w2drm" path="res://Assets/menu_asset/bot_sair.png" id="3_fapvr"]
 [ext_resource type="Texture2D" uid="uid://b86p5yccn1w7v" path="res://Assets/menu_asset/bot_opcoes.png" id="4_kdsmm"]
+[ext_resource type="FontFile" uid="uid://bku1m2d5f0ncj" path="res://Assets/Font/Pixellari.ttf" id="6_kdsmm"]
+[ext_resource type="Texture2D" uid="uid://drm6a2ofwgqhd" path="res://Assets/Logo/logo-bytebash.png" id="7_8lfl8"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_ctkf8"]
-line_spacing = 4.0
-font_size = 50
-font_color = Color(0.0666667, 0.054902, 0.12549, 1)
-shadow_color = Color(0.0980392, 0.176471, 0.380392, 0.592157)
+[sub_resource type="Animation" id="Animation_8lfl8"]
+resource_name = "up_down"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(767, 234.5), Vector2(767, 220), Vector2(767, 250)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.533333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0733038, 0.0366519]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(5.38889, 5.38889), Vector2(6.09, 6.09), Vector2(4.949, 4.949)]
+}
+
+[sub_resource type="Animation" id="Animation_plcv4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(767, 234.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5.38889, 5.38889)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8aipq"]
+_data = {
+&"RESET": SubResource("Animation_plcv4"),
+&"up_down": SubResource("Animation_8lfl8")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_8lfl8"]
+font = ExtResource("6_kdsmm")
+
+[sub_resource type="LabelSettings" id="LabelSettings_kdsmm"]
+font = ExtResource("6_kdsmm")
+
+[sub_resource type="LabelSettings" id="LabelSettings_plcv4"]
+font = ExtResource("6_kdsmm")
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -37,44 +127,126 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Nome do jogo" type="Label" parent="."]
-layout_mode = 2
-offset_left = 907.0
-offset_top = 173.0
-offset_right = 1187.0
-offset_bottom = 299.0
-text = "Bite & Bash"
-label_settings = SubResource("LabelSettings_ctkf8")
-
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-1, 0)
 stream = ExtResource("2_kdsmm")
 
 [node name="BotPlay" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 200.0
-offset_top = 107.0
-offset_right = 320.0
-offset_bottom = 171.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 193.0
+offset_top = 12.0
+offset_right = 313.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(1.895, 1.895)
 texture_normal = ExtResource("2_eheat")
 
 [node name="BotExit" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 200.0
-offset_top = 494.0
-offset_right = 320.0
-offset_bottom = 558.0
+offset_left = 648.0
+offset_top = 631.0
+offset_right = 768.0
+offset_bottom = 695.0
 scale = Vector2(1.895, 1.895)
 texture_normal = ExtResource("3_fapvr")
 
 [node name="BotOpcoes" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 200.0
-offset_top = 244.0
-offset_right = 320.0
-offset_bottom = 308.0
+offset_left = 648.0
+offset_top = 433.0
+offset_right = 768.0
+offset_bottom = 497.0
 scale = Vector2(1.895, 1.895)
 texture_normal = ExtResource("4_kdsmm")
 
+[node name="Logo-bytebash" type="Sprite2D" parent="."]
+position = Vector2(767, 234.5)
+scale = Vector2(5.38889, 5.38889)
+texture = ExtResource("7_8lfl8")
+
+[node name="Logo-bytebash2" type="Sprite2D" parent="Logo-bytebash"]
+modulate = Color(0, 0, 0, 0.270588)
+position = Vector2(-3.15465, 3.71134)
+scale = Vector2(0.969897, 0.74433)
+texture = ExtResource("7_8lfl8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Logo-bytebash"]
+libraries = {
+&"": SubResource("AnimationLibrary_8aipq")
+}
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -19.0
+offset_top = -4.0
+offset_right = 1503.0
+offset_bottom = 827.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="ColorRect2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.227332
+anchor_top = 0.45367
+anchor_right = 0.729961
+anchor_bottom = 0.515042
+offset_left = 23.0
+offset_top = 18.0
+offset_right = -229.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+text = "Um jogo feito por Raphael Ferreira, Lucas Machado e Gabriel Venturini"
+label_settings = SubResource("LabelSettings_8lfl8")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="ColorRect2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.227332
+anchor_top = 0.45367
+anchor_right = 0.729961
+anchor_bottom = 0.515042
+offset_left = 23.0
+offset_top = 18.0
+offset_right = -229.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+text = "Para o projeto integrador da escola Sinodal Progresso."
+label_settings = SubResource("LabelSettings_kdsmm")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="ColorRect2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.227332
+anchor_top = 0.45367
+anchor_right = 0.729961
+anchor_bottom = 0.515042
+offset_left = 23.0
+offset_top = 18.0
+offset_right = -229.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+text = "Não use o google para as respostas por favor :)"
+label_settings = SubResource("LabelSettings_plcv4")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
 [connection signal="pressed" from="BotPlay" to="." method="_on_bot_play_pressed"]
+[connection signal="pressed" from="BotExit" to="." method="_on_bot_exit_pressed"]

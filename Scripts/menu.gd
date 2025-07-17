@@ -1,15 +1,25 @@
 extends Control
 
 func _ready() -> void:
-	$AudioStreamPlayer2D.play()
-
+	var tween = create_tween()
+	tween.tween_property($ColorRect2/Label, "modulate:a", 1.0, 2.5).set_ease(Tween.EASE_IN)
+	tween.tween_property($ColorRect2/Label, "modulate:a", 0.0, 2.5).set_ease(Tween.EASE_IN)
+	tween.tween_property($ColorRect2/Label2, "modulate:a", 1.0, 2.5).set_ease(Tween.EASE_IN)
+	tween.tween_property($ColorRect2/Label2, "modulate:a", 0.0, 2.5).set_ease(Tween.EASE_IN)
+	tween.tween_property($ColorRect2/Label3, "modulate:a", 1.0, 2.5).set_ease(Tween.EASE_IN)
+	tween.tween_property($ColorRect2/Label3, "modulate:a", 0.0, 2.5).set_ease(Tween.EASE_IN)
+	tween.tween_property($ColorRect2, "visible", false, 1.0).set_ease(Tween.EASE_IN)
+	tween.tween_property($AudioStreamPlayer2D, "playing", true, 0.0)
+	$"Logo-bytebash/AnimationPlayer".play("up_down")
+		
 func _on_bot_play_pressed() -> void:
 	var transition = get_tree().create_tween()
 	transition.tween_property(self, "modulate:a", 0, 0.5)
 	await transition.finished
 	$AudioStreamPlayer2D.stop()
 	get_tree().change_scene_to_file("res://Cenas/Mundo.tscn")
-
-
 func _on_bot_opcoes_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://Cenas/menu_opcoes.tscn")
+
+func _on_bot_exit_pressed() -> void:
+	get_tree().quit()

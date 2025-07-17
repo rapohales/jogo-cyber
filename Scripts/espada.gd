@@ -3,7 +3,7 @@ extends Node2D
 @export var amount = 2
 @export var speed = 500
 @export var proj_cena: PackedScene
-@export var fire_delay: float = 0.1
+@export var fire_delay: float = 40
 var is_right: bool = true
 @onready var cooldown = $CoolDown
 var player: Node2D 
@@ -29,10 +29,6 @@ func ativar():
 		return
 	if not muzzle:
 		return
-	if proj_cena == null:
-		push_warning("Nenhuma cena de projétil atribuída!")
-		return
-	print("Iniciando disparo")
 	bullets_fired = 0
 	is_firing = true
 	_fire_next_bullet()
