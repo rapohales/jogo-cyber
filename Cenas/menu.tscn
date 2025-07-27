@@ -1,97 +1,22 @@
-[gd_scene load_steps=14 format=3 uid="uid://wsaav34en06a"]
+[gd_scene load_steps=12 format=3 uid="uid://wsaav34en06a"]
 
 [ext_resource type="Script" uid="uid://chcox4t4rcap2" path="res://Scripts/menu.gd" id="1_fapvr"]
-[ext_resource type="Texture2D" uid="uid://b8adgk5qcmig5" path="res://Assets/menu_asset/bot_jogar.png" id="2_eheat"]
 [ext_resource type="AudioStream" uid="uid://bx76mvnpdgbqm" path="res://Sounds/8-bit-console-from-my-childhood-301286.mp3" id="2_kdsmm"]
-[ext_resource type="Texture2D" uid="uid://l17tam0w2drm" path="res://Assets/menu_asset/bot_sair.png" id="3_fapvr"]
-[ext_resource type="Texture2D" uid="uid://b86p5yccn1w7v" path="res://Assets/menu_asset/bot_opcoes.png" id="4_kdsmm"]
+[ext_resource type="Texture2D" uid="uid://bwts30q76ga5k" path="res://Assets/UI Bundle/UI Bundle/CyberTheme.png" id="3_8lfl8"]
 [ext_resource type="FontFile" uid="uid://bku1m2d5f0ncj" path="res://Assets/Font/Pixellari.ttf" id="6_kdsmm"]
 [ext_resource type="Texture2D" uid="uid://drm6a2ofwgqhd" path="res://Assets/Logo/logo-bytebash.png" id="7_8lfl8"]
 
-[sub_resource type="Animation" id="Animation_8lfl8"]
-resource_name = "up_down"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(767, 234.5), Vector2(767, 220), Vector2(767, 250)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.533333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, -0.0733038, 0.0366519]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:scale")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.333333, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(5.38889, 5.38889), Vector2(6.09, 6.09), Vector2(4.949, 4.949)]
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_plcv4"]
+atlas = ExtResource("3_8lfl8")
+region = Rect2(126, 195, 54, 17)
 
-[sub_resource type="Animation" id="Animation_plcv4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(767, 234.5)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:scale")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(5.38889, 5.38889)]
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_fapvr"]
+atlas = ExtResource("3_8lfl8")
+region = Rect2(126, 235, 54, 17)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_8aipq"]
-_data = {
-&"RESET": SubResource("Animation_plcv4"),
-&"up_down": SubResource("Animation_8lfl8")
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdsmm"]
+atlas = ExtResource("3_8lfl8")
+region = Rect2(126, 215, 54, 17)
 
 [sub_resource type="LabelSettings" id="LabelSettings_8lfl8"]
 font = ExtResource("6_kdsmm")
@@ -117,7 +42,7 @@ script = ExtResource("1_fapvr")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = -23.0
+offset_left = -8.0
 offset_right = 1499.0
 offset_bottom = 831.0
 color = Color(0.247059, 0.0745098, 0.827451, 0.305882)
@@ -138,35 +63,35 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 193.0
-offset_top = 12.0
-offset_right = 313.0
-offset_bottom = 76.0
+offset_left = -340.0
+offset_top = 45.0
+offset_right = -286.0
+offset_bottom = 62.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.895, 1.895)
-texture_normal = ExtResource("2_eheat")
+scale = Vector2(6.065, 6.065)
+texture_normal = SubResource("AtlasTexture_plcv4")
 
 [node name="BotExit" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 648.0
-offset_top = 631.0
-offset_right = 768.0
-offset_bottom = 695.0
-scale = Vector2(1.895, 1.895)
-texture_normal = ExtResource("3_fapvr")
+offset_left = 154.0
+offset_top = 600.0
+offset_right = 208.0
+offset_bottom = 617.0
+scale = Vector2(4.41, 4.41)
+texture_normal = SubResource("AtlasTexture_fapvr")
 
 [node name="BotOpcoes" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 648.0
-offset_top = 433.0
-offset_right = 768.0
-offset_bottom = 497.0
-scale = Vector2(1.895, 1.895)
-texture_normal = ExtResource("4_kdsmm")
+offset_left = 153.0
+offset_top = 495.0
+offset_right = 207.0
+offset_bottom = 512.0
+scale = Vector2(4.41, 4.41)
+texture_normal = SubResource("AtlasTexture_kdsmm")
 
 [node name="Logo-bytebash" type="Sprite2D" parent="."]
-position = Vector2(767, 234.5)
+position = Vector2(475, 211)
 scale = Vector2(5.38889, 5.38889)
 texture = ExtResource("7_8lfl8")
 
@@ -176,12 +101,9 @@ position = Vector2(-3.15465, 3.71134)
 scale = Vector2(0.969897, 0.74433)
 texture = ExtResource("7_8lfl8")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Logo-bytebash"]
-libraries = {
-&"": SubResource("AnimationLibrary_8aipq")
-}
-
 [node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
 offset_left = -19.0
 offset_top = -4.0
 offset_right = 1503.0

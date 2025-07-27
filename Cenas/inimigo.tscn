@@ -82,7 +82,7 @@ size = Vector2(29, 29)
 
 [node name="Inimigo" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 4
-collision_mask = 4
+collision_mask = 8
 wall_min_slide_angle = 0.0
 script = ExtResource("1_imhjy")
 

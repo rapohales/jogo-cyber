@@ -1,0 +1,125 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7kb412psb4hf"]
+
+[ext_resource type="FontFile" uid="uid://bku1m2d5f0ncj" path="res://Assets/Font/Pixellari.ttf" id="1_0o8t7"]
+[ext_resource type="Script" uid="uid://rn103u6s1x4e" path="res://Cenas/morte.gd" id="1_q6v6l"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q6v6l"]
+font = ExtResource("1_0o8t7")
+font_size = 91
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.470588)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2pn6t"]
+font = ExtResource("1_0o8t7")
+font_size = 150
+font_color = Color(1, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.431373)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cj260"]
+font = ExtResource("1_0o8t7")
+font_size = 60
+
+[node name="Morte" type="CanvasLayer"]
+script = ExtResource("1_q6v6l")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1501.0
+offset_bottom = 804.0
+color = Color(0.171542, 0.429504, 0.418335, 0.223529)
+
+[node name="pontuacao_titulo" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.478
+anchor_top = 0.478125
+anchor_right = 0.522
+anchor_bottom = 0.521875
+offset_left = -91.3578
+offset_top = -158.376
+offset_right = 81.6422
+offset_bottom = -101.376
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Score"
+label_settings = SubResource("LabelSettings_q6v6l")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.478
+anchor_top = 0.478125
+anchor_right = 0.522
+anchor_bottom = 0.521875
+offset_left = -91.3578
+offset_top = -287.217
+offset_right = 81.6422
+offset_bottom = -230.217
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "VOCÊ PERDEU"
+label_settings = SubResource("LabelSettings_2pn6t")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="pontuacao_int" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.478
+anchor_top = 0.478125
+anchor_right = 0.522
+anchor_bottom = 0.521875
+offset_left = -91.3578
+offset_top = -66.3762
+offset_right = 81.6422
+offset_bottom = -9.37619
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+label_settings = SubResource("LabelSettings_q6v6l")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="questoes_certas" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.0173333
+anchor_top = 0.7725
+anchor_right = 0.5
+anchor_bottom = 0.8875
+offset_left = 4.28717
+offset_top = -60.0204
+offset_right = 4.28717
+offset_bottom = -60.0204
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Questões certas:  /"
+label_settings = SubResource("LabelSettings_cj260")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="nivel" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.0173333
+anchor_top = 0.7725
+anchor_right = 0.5
+anchor_bottom = 0.8875
+offset_left = 724.0
+offset_top = -60.0204
+offset_right = 724.0
+offset_bottom = -60.0204
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Nível máximo"
+label_settings = SubResource("LabelSettings_cj260")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="."]
+offset_left = 360.122
+offset_top = 692.38
+offset_right = 473.122
+offset_bottom = 758.38
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

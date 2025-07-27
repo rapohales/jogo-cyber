@@ -8,9 +8,9 @@ signal nivel_att(cur_xp)
 # Dicionário com os thresholds de XP para cada nível
 # Ou uma fórmula para calcular dinamicamente
 var xp_thresholds = {
-	1: 0,     # Nível 1 (base)
-	2: 100,   # Nível 2
-	3: 250,   # Nível 3
+	1: 0,     
+	2: 100,   
+	3: 250,  
 	4: 450,
 	5: 700,
 	6: 1000,
@@ -34,7 +34,6 @@ var xp_thresholds = {
 	24: 2400,
 	25: 2400,
 	
-	   
 }
 	
 func add_xp(amount: int):

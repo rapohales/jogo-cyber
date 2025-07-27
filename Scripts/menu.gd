@@ -10,7 +10,6 @@ func _ready() -> void:
 	tween.tween_property($ColorRect2/Label3, "modulate:a", 0.0, 2.5).set_ease(Tween.EASE_IN)
 	tween.tween_property($ColorRect2, "visible", false, 1.0).set_ease(Tween.EASE_IN)
 	tween.tween_property($AudioStreamPlayer2D, "playing", true, 0.0)
-	$"Logo-bytebash/AnimationPlayer".play("up_down")
 		
 func _on_bot_play_pressed() -> void:
 	var transition = get_tree().create_tween()
@@ -19,7 +18,11 @@ func _on_bot_play_pressed() -> void:
 	$AudioStreamPlayer2D.stop()
 	get_tree().change_scene_to_file("res://Cenas/Mundo.tscn")
 func _on_bot_opcoes_pressed() -> void:
-	get_tree().change_scene_to_file("res://Cenas/menu_opcoes.tscn")
-
+	get_tree().change_scene_to_file("res://Cenas/menu_opcoes.tscn")	
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("passar_cutscene"):
+		var tween = create_tween()
+		tween.tween_property($ColorRect2, "modulate:a", 0.0, 1.0).set_ease(Tween.EASE_IN)
+		tween.tween_property($ColorRect2, "visible", false, 1.0).set_ease(Tween.EASE_IN)
 func _on_bot_exit_pressed() -> void:
 	get_tree().quit()

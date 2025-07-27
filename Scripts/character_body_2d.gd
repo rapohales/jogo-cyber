@@ -10,6 +10,7 @@ extends CharacterBody2D
 var can_take_damage := true
 var invulnerability_time := 1
 @onready var vida_ui = $VidaDisplay/HealthBar
+@onready var tela_morte = preload("res://Cenas/morte.tscn")
 
 
 # Sistema de esquivas
@@ -63,7 +64,10 @@ func ganhar_vida(vida):
 
 func morrer():
 	print("Morreu")
-	queue_free()
+	get_tree().change_scene_to_file("res://Cenas/morte.tscn")
+	self.queue_free()
+	
+
 
 func pegar_input():
 	if is_dodging:

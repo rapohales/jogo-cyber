@@ -5,6 +5,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_2pyfd"]
 font = ExtResource("2_v8jrw")
+font_size = 13
 
 [node name="Efeito" type="Node2D"]
 position = Vector2(113, 21)
